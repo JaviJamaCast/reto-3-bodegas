@@ -28,7 +28,7 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/reto3-app-laravek:latest
+        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/killer:latest
         platforms: linux/arm64/v8
 
     
