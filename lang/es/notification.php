@@ -17,6 +17,11 @@ return [
     'hello' => "¡Hola!",
     'error' => "¡Ups!",
     'line1' => "Si tienes problemas para hacer clic en el botón \":actionText\", copia y pega la siguiente URL\n en tu navegador web:",
+    'rights'=> 'Todos los derechos reservados.'
+
+
+
+
 
 
 ];

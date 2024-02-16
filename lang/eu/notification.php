@@ -18,7 +18,7 @@ return [
     'hello' => "Kaixo!",
     'error' => "Oops!",
     'line1' => "Botoia \":actionText\" sakatzean arazoa baduzu, mesedez, kopiatu eta itsatsi beheko URLa\n zure web arakatzailean:",
-
+    'rights'=> 'Azkonarik ezarritako eskubide guztiak.'
 
 
 ];

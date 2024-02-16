@@ -17,5 +17,6 @@ return [
     'hello' => "Hello!",
     'error' => "Whoops",
     'line1' => "If you're having trouble clicking the \":actionText\" button, copy and paste the following URL\n into your web browser:",
+    'rights'=> ' All rights reserved.'
 
 ];
