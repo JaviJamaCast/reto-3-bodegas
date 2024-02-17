@@ -46,6 +46,9 @@ class User extends Authenticatable implements MustVerifyEmail
         'password' => 'hashed',
     ];
 
+    public function pedidos() {
+        return $this->belongsToMany(Pedido::class);
+    }
 
     public function sendPasswordResetNotification($token)
     {
