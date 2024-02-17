@@ -15,8 +15,11 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        // Asegurar existencia de datos básicos
         $this->crearDatosBasicos();
+        $this->call([
+            RolSeeder::class,
+        ]);
+        // Asegurar existencia de datos básicos
 
         Cliente::all()->each(function ($cliente) {
             $cliente->pedidos()->saveMany(Pedido::factory(rand(1, 5))->make())
@@ -42,12 +45,12 @@ class DatabaseSeeder extends Seeder
                         });
                 });
         });
+
     }
 
     protected function crearDatosBasicos()
     {
 
-        RolSeeder::class;
 
         if (User::count() < 10) {
             User::factory(10)->create();
@@ -64,6 +67,9 @@ class DatabaseSeeder extends Seeder
 
         if (Formato::count() < 3) {
             Formato::factory(3)->create();
+        }
+        if (Cliente::count() < 10) {
+            Cliente::factory(10)->create();
         }
     }
 }
