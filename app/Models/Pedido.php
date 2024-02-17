@@ -10,7 +10,7 @@ class Pedido extends Model
     use HasFactory;
 
     public function usuarios() {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class)->withTimestamps();;
     }
 
     public function cliente() {
@@ -18,7 +18,7 @@ class Pedido extends Model
     }
 
     public function productos() {
-        return $this->belongsToMany(Producto::class);
+        return $this->belongsToMany(Producto::class)->withTimestamps();;
     }
 
 

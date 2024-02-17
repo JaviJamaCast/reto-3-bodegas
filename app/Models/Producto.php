@@ -11,7 +11,7 @@ class Producto extends Model
 
 
     public function categorias() {
-        return $this->belongsToMany(Categoria::class);
+        return $this->belongsToMany(Categoria::class)->withTimestamps();;
     }
 
     public function formato() {
@@ -23,7 +23,7 @@ class Producto extends Model
     }
 
     public function pedidos() {
-        return $this->belongsToMany(Pedido::class);
+        return $this->belongsToMany(Pedido::class)->withTimestamps();;
     }
 
 

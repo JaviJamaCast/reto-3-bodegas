@@ -47,7 +47,7 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     public function pedidos() {
-        return $this->belongsToMany(Pedido::class);
+        return $this->belongsToMany(Pedido::class)->withTimestamps();;
     }
 
     public function sendPasswordResetNotification($token)
