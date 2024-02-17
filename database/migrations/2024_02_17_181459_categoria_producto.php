@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('formatos', function (Blueprint $table) {
-            $table->id();
-            $table->string("formato",255)->nullable(false);
+        Schema::create('categoria_producto', function (Blueprint $table) {
+            $table->foreignId('categoria_id')->constrained()->onDelete('cascade');
+            $table->foreignId('producto_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
+
     }
 
     /**
@@ -23,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('formatos');
+        Schema::dropIfExists('categoria_producto');
     }
 };
