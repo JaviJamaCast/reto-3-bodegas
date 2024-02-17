@@ -46,6 +46,9 @@ class DatabaseSeeder extends Seeder
 
     protected function crearDatosBasicos()
     {
+
+        RolSeeder::class;
+
         if (User::count() < 10) {
             User::factory(10)->create();
         }

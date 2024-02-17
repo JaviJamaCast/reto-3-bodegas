@@ -17,7 +17,7 @@ class FormatoFactory extends Factory
     public function definition(): array
     {
         return [
-            'formato' => fake()->numberBetween(1, 100) . ['L', 'CL'],
+            'formato' => fake()->numberBetween(1, 100) . fake()->randomElement(['L', 'CL']),
         ];
     }
 }
