@@ -1,9 +1,58 @@
 // Fonts
-@import url('https://fonts.bunny.net/css?family=Nunito');
+@import url("https://fonts.bunny.net/css?family=Nunito");
 
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bootstrap
-@import 'bootstrap/scss/bootstrap';
+@import "bootstrap/scss/bootstrap";
 
+.navbar {
+    background-color: $secondary-color !important;
+}
+
+.navbar-nav .nav-link.active {
+    margin: auto;
+    border-radius: .7em;
+    background-color: $tertiary-color; /* Cambia el color de fondo */
+    color: #fff; /* Cambia el color del texto */
+}
+
+.nav-item {
+    text-align: center;
+    padding: 0.3em 0.5em 0.3em 0.5em;
+}
+
+.dropdown-menu.show {
+    width: auto !important;
+}
+.dropdown-menu {
+    width: 120px !important; /* Ancho del menú desplegable cuando está cerrado */
+}
+
+.footer{
+    background-color:$secondary-color ;
+}
+.content{
+    background-color: $quaternary-color !important;
+    min-height: calc(100vh - 100px);
+}
+
+#carruselWelcome{
+    margin: 1em 0 0 0 ;
+}
+
+.carousel-item {
+        height: 40vh;
+    overflow: hidden;
+    img {
+        object-fit: cover; // Esto asegurará que la imagen cubra el área disponible
+        object-position: center; // Centra la imagen dentro de su contenedor
+    }
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.7); // Fondo semi-transparente
+    padding: 0.5rem; // Espaciado interno para no pegar el texto a los bordes
+    border-radius: 0.25rem; // Bordes redondeados para el contenedor del texto
+}
