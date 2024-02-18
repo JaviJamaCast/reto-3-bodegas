@@ -200,6 +200,16 @@
 }
 .custom-shadow {
     background-color: $secondary-color;
-    padding: .4em;
-    border-radius: .4em;
+    padding: 0.4em;
+    border-radius: 0.4em;
+}
+.carousel-inner {
+    height: 13.8em; /* Establece una altura fija para todas las resoluciones */
+}
+
+/* Media query para PCs */
+@media (min-width: 992px) {
+    .carousel-inner {
+        height: 20.5em; /* Altura mayor para PCs */
+    }
 }

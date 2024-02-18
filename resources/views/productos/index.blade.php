@@ -3,19 +3,19 @@
 @section('content')
     <div class="container mb-5">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h1 class="m-0 custom-shadow">Listado de Productos</h1>
-            <a href="{{ route('productos.create') }}" class="btn primary-killer"><i class="bi bi-plus-lg fs-2"></i></a>
+            <h1 class="mt-3 m-md-0 custom-shadow">Productos</h1>
+            <a href="{{ route('productos.create') }}" class="mt-1 m-md-0 btn primary-killer"><i class="bi bi-plus-lg fs-2"></i></a>
             <!-- Botón sin margen inferior -->
         </div>
         <div class="row">
             @foreach ($productos as $producto)
-                <div class="col-md-3 mb-4">
+                <div class="col-md-4 col-lg-3 mb-4">
                     <div class="card cardClass h-100">
                         @if ($producto->imagenes->count() > 1)
-                            <div id="carousel{{ $producto->id }}" class="carousel slide" data-bs-ride="carousel">
+                            <div id="carousel{{ $producto->id }}" class="carousel slide" data-bs-ride="carousel" >
                                 <div class="carousel-inner">
                                     @foreach ($producto->imagenes as $index => $imagen)
-                                        <div class="carousel-item {{ $index == 0 ? 'active' : '' }}" style="height: 31vh">
+                                        <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
                                             <img src="{{ asset('storage/' . $imagen->nombre) }}" class="card-img-top"
                                                 alt="{{ $producto->nombre }} style="height: 100px;">
                                         </div>
