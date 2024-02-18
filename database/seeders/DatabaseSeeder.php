@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->crearDatosBasicos();
         $this->call([
             RolSeeder::class,
+            AdminSeeder::class
         ]);
         // Asegurar existencia de datos básicos
 
