@@ -19,10 +19,10 @@
                             <div class="card shadow-sm text-center bg-tertiary-killer bg-gradient text-white">
                                 <div class="card-body p-3">
                                     <h5 class="card-title mb-2 color-primary-killer">{{ __('home.gProductos') }}</h5>
-                                    <a href="#" class="d-block mb-3">
+                                    <a href="{{ route('productos.index') }}"" class="d-block mb-3">
                                         <i class="bi bi-list-check fs-1 color-secondary-killer"></i>
                                     </a>
-                                    <a href="" class="btn btn-sm primary-killer-out">{{ __('home.entrarB') }}</a>
+                                    <a href="{{ route('productos.index') }}"class="btn btn-sm primary-killer-out">{{ __('home.entrarB') }}</a>
                                 </div>
                             </div>
                         </div>
