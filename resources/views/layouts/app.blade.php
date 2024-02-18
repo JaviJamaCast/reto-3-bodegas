@@ -34,15 +34,15 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link {{ Route::currentRouteName() === 'welcome' ? 'active' : '' }}""
+                    <a class="nav-link {{ Route::currentRouteName() === 'welcome' ? 'active' : '' }}"
                         href="{{ route('welcome') }}">{{ __('navBar.home') }} </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Route::currentRouteName() === 'catalogo' ? 'active' : '' }}""
+                    <a class="nav-link {{ Route::currentRouteName() === 'catalogo' ? 'active' : '' }}"
                         href="{{ route('catalogo') }}">{{ __('navBar.catalogo') }} </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Route::currentRouteName() === 'trabaja' ? 'active' : '' }}""
+                    <a class="nav-link {{ Route::currentRouteName() === 'trabaja' ? 'active' : '' }}"
                         href="{{ route('trabaja') }}">{{ __('navBar.trabaja') }} </a>
                 </li>
             </ul>
@@ -53,13 +53,13 @@
                 @guest
                     @if (Route::has('login'))
                         <li class="nav-item">
-                            <a class="nav-link " href="{{ route('login') }}">{{ __('auth.login') }}</a>
+                            <a class="nav-link {{ Route::currentRouteName() === 'login' ? 'active' : '' }} " href="{{ route('login') }}">{{ __('auth.login') }}</a>
                         </li>
                     @endif
 
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('auth.register') }}</a>
+                            <a class="nav-link  {{ Route::currentRouteName() === 'register' ? 'active' : '' }}" href="{{ route('register') }}">{{ __('auth.register') }}</a>
                         </li>
                     @endif
                 @else
@@ -89,11 +89,10 @@
                         aria-expanded="false" v-pre>
                         {{ strtoupper(app()->getLocale()) }}
                     </a>
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-
-                        <a class="dropdown-item" href="{{ url('language/es') }}">ES</a>
-                        <a class="dropdown-item" href="{{ url('language/en') }}">EN</a>
-                        <a class="dropdown-item" href="{{ url('language/eu') }}">EU</a>
+                    <div class="dropdown-menu dropdown-menu-end dropdownClass" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item dropdownItemClass" href="{{ url('language/es') }}">ES</a>
+                        <a class="dropdown-item dropdownItemClass" href="{{ url('language/en') }}">EN</a>
+                        <a class="dropdown-item dropdownItemClass" href="{{ url('language/eu') }}">EU</a>
                     </div>
 
                 </li>

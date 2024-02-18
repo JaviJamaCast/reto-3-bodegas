@@ -1,13 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('register.registerL') }}</div>
 
-                <div class="card-body">
+    <div class="row d-flex justify-content-center align-items-center trabajaConNosotrosClass">
+        <div class="col-md-3 my-2">
+            <img class="img-fluid" src="{{ asset('/images/KawaiiLogo.png') }}">
+        </div>
+        <div class="col-md-8 mb-5">
+            <div class="card">
+                <div class="card-header cardClassHeader">{{ __('register.registerL') }}</div>
+
+                <div class="card-body cardClass">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
@@ -63,7 +66,7 @@
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn primary-killer">
                                     {{ __('register.registerB') }}
                                 </button>
                             </div>
@@ -73,5 +76,5 @@
             </div>
         </div>
     </div>
-</div>
+
 @endsection

@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
+    <div class="row d-flex justify-content-center align-items-center trabajaConNosotrosClass">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('confirmPassword.label') }}</div>
@@ -14,10 +13,13 @@
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('confirmPassword.password') }}</label>
+                            <label for="password"
+                                class="col-md-4 col-form-label text-md-end">{{ __('confirmPassword.password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <input id="password" type="password"
+                                    class="form-control @error('password') is-invalid @enderror" name="password" required
+                                    autocomplete="current-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -45,5 +47,4 @@
             </div>
         </div>
     </div>
-</div>
 @endsection

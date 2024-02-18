@@ -95,6 +95,15 @@
     }
 }
 
+.link-killer{
+    margin: 0 0 0 .7em;
+    color: $quaternary-color;
+
+    &:hover {
+        color: darken($quaternary-color, 10%) !important;
+    }
+}
+
 .trabajaConNosotrosClass {
     min-height: calc(100vh - 250px);
 }
@@ -107,3 +116,16 @@
     background-color: $tertiary-color !important;
     color: #fff;
 }
+.dropdownClass{
+    background-color: $tertiary-color;
+    color: #fff !important;
+
+}
+.dropdownItemClass{
+    color:#fff;
+    &:hover{
+        background-color: darken($tertiary-color, 10%) !important;
+        color:#fff;
+    }
+}
+
