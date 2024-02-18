@@ -16,14 +16,13 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center mt-2">
-                <button class="btn primary-killer" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvas" aria-controls="offcanvas">
+                <button class="btn primary-killer" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas"
+                    aria-controls="offcanvas">
                     <i class="bi bi-house fs-1 color-quaternary-killer"></i>
                 </button>
             </div>
 
-            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas"
-                aria-labelledby="offcanvasLabel">
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title" id="offcanvasLabel">Menu</h5>
                     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
@@ -38,11 +37,10 @@
                     </div>
                 </div>
                 <div class="offcanvas-footer mb-3">
-                    <div class="list-group">
-                        <div class="dropdown">
-                            <a class="btn btn-secondary dropdown-toggle list-group-item list-group-item-action"
-                                href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
-                                aria-expanded="false">
+                    <div class="list-group d-flex flex-row">
+                        <div class="dropdown d-inline me-2">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                                id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                 Perfil
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -51,11 +49,28 @@
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+                                <li><a class="dropdown-item" href="{{ route('logout') }}">Cerrar sesión</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="dropdown d-inline">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                                id="dropdownLanguage" data-bs-toggle="dropdown" aria-expanded="false">
+                                {{ strtoupper(app()->getLocale()) }}
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownLanguage">
+                                <li><a class="dropdown-item" href="{{ url('language/es') }}">ES</a></li>
+                                <li><a class="dropdown-item" href="{{ url('language/en') }}">EN</a></li>
+                                <li><a class="dropdown-item" href="{{ url('language/eu') }}">EU</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
+
+
+
+
+
             </div>
 
             <div class="col-12">
