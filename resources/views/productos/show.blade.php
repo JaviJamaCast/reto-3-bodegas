@@ -9,12 +9,15 @@
                 <div class="col-md-6 d-flex flex-column justify-content-center">
                     <div class="card-body">
                         <h1 class="card-title">{{ $producto->nombre }}</h1>
-                        <p class="card-text"><strong>Descripción:</strong> {{ $producto->descripcion }}</p>
-                        <p class="card-text"><strong>Referencia:</strong> {{ $producto->referencia }}</p>
-                        <p class="card-text"><strong>Precio:</strong> $ {{ $producto->precio }}</p>
-                        <p class="card-text"><strong>Formato:</strong> {{ $producto->formato->formato }}</p>
+                        <p class="card-text"><strong>{{ __('producto.descripcion') }}:</strong> {{ $producto->descripcion }}
+                        </p>
+                        <p class="card-text"><strong>{{ __('producto.referencia') }}:</strong> {{ $producto->referencia }}
+                        </p>
+                        <p class="card-text"><strong>{{ __('producto.precio') }}:</strong> $ {{ $producto->precio }}</p>
+                        <p class="card-text"><strong>{{ __('producto.formato') }}:</strong> {{ $producto->formato->formato }}
+                        </p>
                         <div class="mb-3">
-                            <strong>Categorías:</strong>
+                            <strong>{{ __('producto.productos') }}</strong>
                             <ul class="list-unstyled d-flex flex-wrap">
                                 @foreach ($producto->categorias as $categoria)
                                     <li><span class="badge bg-quaternary-killer me-2">{{ $categoria->nombre }}</span></li>
@@ -22,7 +25,8 @@
                             </ul>
                         </div>
 
-                        <a href="{{ route('productos.index') }}" class="btn tertiary-killer">Volver</a>
+                        <a href="{{ route('productos.index') }}"
+                            class="btn tertiary-killer">{{ __('producto.volverBt') }}</a>
                     </div>
                 </div>
                 <!-- Carrusel de imágenes -->

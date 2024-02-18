@@ -3,6 +3,7 @@
 @section('content')
     <div class="container mb-5">
         <h1>Editar Producto</h1>
+        <a href="{{ route('productos.index') }}" class="btn tertiary-killer my-2">{{ __('producto.volverBt') }}</a>
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -20,28 +21,28 @@
                     @method('PUT')
 
                     <div class="mb-3">
-                        <label for="nombre" class="form-label">Nombre:</label>
+                        <label for="nombre" class="form-label">{{ __('producto.nombre') }}</label>
                         <input type="text" name="nombre" class="form-control" value="{{ $producto->nombre }}" required>
                     </div>
 
                     <div class="mb-3">
-                        <label for="descripcion" class="form-label">Descripción:</label>
+                        <label for="descripcion" class="form-label">{{ __('producto.descripcion') }}</label>
                         <textarea name="descripcion" class="form-control" rows="3" required>{{ $producto->descripcion }}</textarea>
                     </div>
 
                     <div class="mb-3">
-                        <label for="referencia" class="form-label">Referencia:</label>
+                        <label for="referencia" class="form-label">{{ __('producto.referencia') }}</label>
                         <input type="text" name="referencia" class="form-control" value="{{ $producto->referencia }}"
                             required>
                     </div>
 
                     <div class="mb-3">
-                        <label for="precio" class="form-label">Precio:</label>
+                        <label for="precio" class="form-label">{{ __('producto.precio') }}</label>
                         <input type="number" name="precio" class="form-control" value="{{ $producto->precio }}" required>
                     </div>
 
                     <div class="mb-3">
-                        <label for="formato_id" class="form-label">Formato:</label>
+                        <label for="formato_id" class="form-label">{{ __('producto.formato') }}</label>
                         <select name="formato_id" class="form-control" required>
                             @foreach ($formatos as $formato)
                                 <option value="{{ $formato->id }}"
@@ -53,7 +54,7 @@
 
                     <div class="card mb-3">
                         <div class="card-body">
-                            <h5 class="card-title">Categorías</h5>
+                            <h5 class="card-title">{{ __('producto.categorias') }}</h5>
                             <div class="row">
                                 @foreach ($categorias as $categoria)
                                     <div class="col-md-3">
@@ -74,7 +75,7 @@
 
 
                     <div class="mb-3">
-                        <label for="imagenes" class="form-label">Imágenes Actuales:</label>
+                        <label for="imagenes" class="form-label">{{ __('producto.imagenesActuales') }}</label>
                         <div class="row row-cols-1 row-cols-md-4 g-3">
                             @foreach ($producto->imagenes as $imagen)
                                 <div class="col">
@@ -96,13 +97,14 @@
 
 
                     <div class="my-3">
-                        <label for="fileUpload" class="form-label">Subir nuevas imagenes:</label>
-                        <input type="file" class="form-control d-none" name="imagenes[]" id="fileUpload" accept=".png,.jpg,.jpeg" multiple>
+                        <label for="fileUpload" class="form-label">{{ __('producto.subirNuevasImagenes') }}</label>
+                        <input type="file" class="form-control d-none" name="imagenes[]" id="fileUpload"
+                            accept=".png,.jpg,.jpeg" multiple>
                         <label class="btn tertiary-killer mx-3" for="fileUpload">Seleccionar imagenes</label>
                         <span id="fileName"></span>
                     </div>
 
-                    <button type="submit" class="btn primary-killer">Guardar Cambios</button>
+                    <button type="submit" class="btn primary-killer">{{ __('producto.guardarC') }}</button>
                 </form>
             </div>
         </div>

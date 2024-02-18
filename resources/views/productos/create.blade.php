@@ -2,7 +2,8 @@
 
 @section('content')
     <div class="container">
-        <h1 class="mb-4">Crear Nuevo Producto</h1>
+        <h1 class="mb-4">{{ __('producto.crearProductoL') }}</h1>
+        <a href="{{ route('productos.index') }}" class="btn tertiary-killer my-2">{{ __('producto.volverBt') }}</a>
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul class="mb-0">
@@ -19,27 +20,27 @@
                     @csrf
 
                     <div class="mb-3">
-                        <label for="nombre" class="form-label">Nombre:</label>
+                        <label for="nombre" class="form-label">{{ __('producto.nombre') }}</label>
                         <input type="text" name="nombre" class="form-control" required>
                     </div>
 
                     <div class="mb-3">
-                        <label for="descripcion" class="form-label">Descripción:</label>
+                        <label for="descripcion" class="form-label">{{ __('producto.descripcion') }}</label>
                         <textarea name="descripcion" class="form-control" rows="3" required></textarea>
                     </div>
 
                     <div class="mb-3">
-                        <label for="referencia" class="form-label">Referencia:</label>
+                        <label for="referencia" class="form-label">{{ __('producto.referencia') }}</label>
                         <input type="text" name="referencia" class="form-control" required>
                     </div>
 
                     <div class="mb-3">
-                        <label for="precio" class="form-label">Precio:</label>
+                        <label for="precio" class="form-label">{{ __('producto.precio') }}</label>
                         <input type="number" name="precio" class="form-control" required>
                     </div>
 
                     <div class="mb-3">
-                        <label for="formato_id" class="form-label">Formato:</label>
+                        <label for="formato_id" class="form-label">{{ __('producto.formato') }}</label>
                         <select name="formato_id" class="form-select" required>
                             @foreach ($formatos as $formato)
                                 <option value="{{ $formato->id }}">{{ $formato->formato }}</option>
@@ -47,7 +48,7 @@
                         </select>
                     </div>
 
-                    <h5 class="card-title">Categorías</h5>
+                    <h5 class="card-title">{{ __('producto.categorias') }}</h5>
                     <div class="row">
                         @foreach ($categorias as $categoria)
                             <div class="col-md-2 mb-3">
@@ -62,15 +63,16 @@
                     </div>
 
                     <div class="my-3">
-                        <label for="fileUpload" class="form-label">Imagenes:</label>
-                        <input type="file" class="form-control d-none" name="imagenes[]" id="fileUpload" accept=".png,.jpg,.jpeg" multiple
-                            required>
-                        <label class="btn tertiary-killer mx-3" for="fileUpload">Seleccionar imagenes</label>
+                        <label for="fileUpload" class="form-label">{{ __('producto.imagenes') }}</label>
+                        <input type="file" class="form-control d-none" name="imagenes[]" id="fileUpload"
+                            accept=".png,.jpg,.jpeg" multiple required>
+                        <label class="btn tertiary-killer mx-3" for="fileUpload">{{ __('producto.seleccionar') }}</label>
                         <span id="fileName"></span>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Crear Producto</button>
+                    <button type="submit" class="btn primary-killer">{{ __('producto.crearProductoBt') }}</button>
                 </form>
+
             </div>
         </div>
     </div>
