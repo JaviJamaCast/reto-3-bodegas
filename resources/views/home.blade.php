@@ -30,10 +30,10 @@
                             <div class="card shadow-sm text-center bg-tertiary-killer bg-gradient text-white">
                                 <div class="card-body p-3 ">
                                     <h5 class="card-title mb-2 color-primary-killer">{{ __('home.gClientes') }}</h5>
-                                    <a href="#" class="d-block mb-3">
+                                    <a href="{{ route('clientes.index') }}" class="d-block mb-3">
                                         <i class="bi bi-people fs-1 color-secondary-killer"></i>
                                     </a>
-                                    <a href="" class="btn btn-sm primary-killer-out">{{ __('home.entrarB') }}</a>
+                                    <a href="{{ route('clientes.index') }}" class="btn btn-sm primary-killer-out">{{ __('home.entrarB') }}</a>
                                 </div>
                             </div>
                         </div>

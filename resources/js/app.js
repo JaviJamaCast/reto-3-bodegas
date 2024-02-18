@@ -119,4 +119,11 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
+
+    document
+        .getElementById("generarCodigo")
+        .addEventListener("click", function () {
+            var codigo = Math.floor(100000 + Math.random() * 900000).toString();
+            document.getElementById("codigo_acceso").value = codigo;
+        });
 });
