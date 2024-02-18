@@ -13,14 +13,14 @@ return [
     |
     */
 
-
+    'categoriaL' => 'Categories',
     'crearProductoL' => 'Create New Product',
     'nombre' => 'Name:',
     'descripcion' => 'Description:',
     'referencia' => 'Reference:',
     'precio' => 'Price:',
     'formato' => 'Format:',
-    'categorias' => 'Categories',
+    'categorias' => 'Categories:',
     'imagenes' => 'Images:',
     'seleccionar' => 'Select Images',
     'crearProductoBt' => 'Create Product',

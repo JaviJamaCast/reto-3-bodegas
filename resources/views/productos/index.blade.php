@@ -6,7 +6,7 @@
             <h1 class="m-1 mx-md-3 custom-shadow">{{ __('producto.productos') }}</h1>
             <a href="{{ route('productos.create') }}" class="m-2 mx-md-2 btn primary-killer"><i
                 class="bi bi-plus-lg fs-3"></i></a>
-            <a href="{{ route('categorias.index') }}" class="m-2 mx-md-2 btn primary-killer">Categorias</a>
+            <a href="{{ route('categorias.index') }}" class="m-2 mx-md-2 btn primary-killer">{{ __('producto.categoriaL') }}</a>
 
         </div>
         <div class="row">

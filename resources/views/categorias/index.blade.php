@@ -4,10 +4,10 @@
     <div class="container">
         <div class="d-flex justify-content align-items-center my-3 mx-md-3  ">
 
-            <h1 class="m-1 mx-md-3 custom-shadow">Indice de categorias</h1>
+            <h1 class="m-1 mx-md-3 custom-shadow">{{ __('categoria.indiceL') }}</h1>
             <a href="{{ route('categorias.create') }}" class="m-2 mx-md-2 btn primary-killer"><i
                     class="bi bi-plus-lg fs-3"></i></a>
-            <a href="{{ route('productos.index') }}" class="m-2 mx-md-2 btn primary-killer">Volver</a>
+            <a href="{{ route('productos.index') }}" class="m-2 mx-md-2 btn primary-killer">{{ __('producto.volverBt') }}</a>
         </div>
         <div class="row">
             @foreach ($categorias as $categoria)

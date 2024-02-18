@@ -12,14 +12,14 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-
+    'categoriaL' => 'Categorías',
     'crearProductoL' => 'Crear Nuevo Producto',
     'nombre' => 'Nombre:',
     'descripcion' => 'Descripción:',
     'referencia' => 'Referencia:',
     'precio' => 'Precio:',
     'formato' => 'Formato:',
-    'categorias' => 'Categorías',
+    'categorias' => 'Categorías:',
     'imagenes' => 'Imagenes:',
     'seleccionar' => 'Seleccionar imagenes',
     'crearProductoBt' => 'Crear Producto',
