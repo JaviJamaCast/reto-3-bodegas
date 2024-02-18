@@ -21,13 +21,17 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (fileInput) {
-        fileInput.addEventListener("change", function () {
-            if (fileInput.files.length > 0) {
+        if (fileInput.files.length == 1) {
+            fileInput.addEventListener("change", function () {
                 fileNameDisplay.textContent = fileInput.files[0].name;
-            }
-        });
+            });
+        } else {
+            fileInput.addEventListener("change", function () {
+                fileNameDisplay.textContent =
+                    this.files.length + " archivo/s seleccionados";
+            });
+        }
     }
-
     const successMessage = document
         .querySelector('meta[name="success-message"]')
         .getAttribute("content");
@@ -35,7 +39,6 @@ document.addEventListener("DOMContentLoaded", function () {
         .querySelector('meta[name="error-message"]')
         .getAttribute("content");
 
-    // Mostrar SweetAlert para éxito
     if (successMessage) {
         swal.fire({
             title: "Éxito",
@@ -45,7 +48,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Mostrar SweetAlert para error
     if (errorMessage) {
         swal.fire({
             title: "Error",
@@ -58,8 +60,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const deleteButtons = document.querySelectorAll(".delete-button");
     deleteButtons.forEach((button) => {
         button.addEventListener("click", function (e) {
-            e.preventDefault(); // Prevenir la acción por defecto del botón
-            const form = this.form; // Suponiendo que cada botón está dentro de un formulario específico
+            e.preventDefault();
+            const form = this.form;
             swal.fire({
                 title: "¿Estás seguro?",
                 text: "No podrás revertir esto!",
@@ -70,9 +72,20 @@ document.addEventListener("DOMContentLoaded", function () {
                 confirmButtonText: "Sí, eliminar!",
             }).then((result) => {
                 if (result.isConfirmed) {
-                    form.submit(); // Submit the form associated with this button
+                    form.submit();
                 }
             });
+        });
+    });
+    var cardsImagenes = document.querySelectorAll(".card-imagen");
+
+    cardsImagenes.forEach(function (card) {
+        card.addEventListener("click", function (event) {
+            var checkbox = this.querySelector('input[type="checkbox"]');
+            var target = event.target;
+            if (target.tagName !== "INPUT") {
+                checkbox.checked = !checkbox.checked;
+            }
         });
     });
 });

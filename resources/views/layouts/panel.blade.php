@@ -33,7 +33,7 @@
                 </div>
                 <div class="offcanvas-body">
                     <div class="list-group mb-2">
-                        <a href="#" class="list-group-item list-group-item-action py-3 mb-3">Enlace 1</a>
+                        <a href="{{ route('home') }}" class="list-group-item list-group-item-action py-3 mb-3">Inicio</a>
                         <a href="#" class="list-group-item list-group-item-action py-3 mb-3">Enlace 2</a>
                         <a href="#" class="list-group-item list-group-item-action py-3 mb-3">Enlace 3</a>
                         <!-- Agrega más enlaces según sea necesario -->

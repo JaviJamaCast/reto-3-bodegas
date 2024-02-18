@@ -62,7 +62,7 @@
 }
 
 .carousel-item {
-    height: 40vh;
+    height: 50vh;
     overflow: hidden;
     img {
         object-fit: cover;
@@ -135,6 +135,7 @@
 
 .cardClass {
     background-color: $secondary-color !important;
+    max-width: 70em;
 }
 
 .cardClassHeader {
@@ -163,6 +164,11 @@
 .bg-tertiary-killer {
     background-color: $tertiary-color !important;
 }
+
+.bg-quaternary-killer {
+    background-color: $quaternary-color !important;
+}
+
 .color-secondary-killer {
     color: $secondary-color;
 }
@@ -203,13 +209,13 @@
     padding: 0.4em;
     border-radius: 0.4em;
 }
-.carousel-inner {
-    height: 13.8em; /* Establece una altura fija para todas las resoluciones */
+.index {
+    height: 13.8em;
 }
 
-/* Media query para PCs */
+
 @media (min-width: 992px) {
-    .carousel-inner {
-        height: 20.5em; /* Altura mayor para PCs */
+    .index {
+        height: 20.5em;
     }
 }

@@ -4,7 +4,8 @@
     <div class="container mb-5">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h1 class="mt-3 m-md-0 custom-shadow">Productos</h1>
-            <a href="{{ route('productos.create') }}" class="mt-1 m-md-0 btn primary-killer"><i class="bi bi-plus-lg fs-2"></i></a>
+            <a href="{{ route('productos.create') }}" class="mt-1 m-md-0 btn primary-killer"><i
+                    class="bi bi-plus-lg fs-2"></i></a>
             <!-- Botón sin margen inferior -->
         </div>
         <div class="row">
@@ -12,8 +13,8 @@
                 <div class="col-md-4 col-lg-3 mb-4">
                     <div class="card cardClass h-100">
                         @if ($producto->imagenes->count() > 1)
-                            <div id="carousel{{ $producto->id }}" class="carousel slide" data-bs-ride="carousel" >
-                                <div class="carousel-inner">
+                            <div id="carousel{{ $producto->id }}" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner index">
                                     @foreach ($producto->imagenes as $index => $imagen)
                                         <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
                                             <img src="{{ asset('storage/' . $imagen->nombre) }}" class="card-img-top"
@@ -35,6 +36,9 @@
                         @elseif($producto->imagenes->count() == 1)
                             <img src="{{ asset('storage/' . $producto->imagenes->first()->nombre) }}" class="card-img-top"
                                 alt="{{ $producto->nombre }}">
+                        @elseif($producto->imagenes->count() == 0)
+                            <img src="{{ asset('images/default.jpg') }}" class="card-img-top"
+                                alt="{{ $producto->nombre }}">
                         @endif
                         <div class="card-body">
                             <h5 class="card-title"><strong>{{ $producto->nombre }}</strong></h5>
@@ -43,10 +47,22 @@
                                 {{ $producto->formato->formato }}
                             </p>
                             <div class="d-flex justify-content-between">
-                                <a href="{{ route('productos.show', $producto) }}" class="btn primary-killer"><i class="bi bi-eye fs-5"></i></a>
-                                <a href="{{ route('productos.edit', $producto) }}" class="btn tertiary-killer"><i class="bi bi-pencil fs-5"></i></a>
-                                <button type="button" class="btn btn-danger delete-button"
-                                    data-id="{{ $producto->id }}"><i class="bi bi-trash fs-5"></i></button>
+                                <a href="{{ route('productos.show', $producto) }}" class="btn primary-killer"><i
+                                        class="bi bi-eye fs-5"></i></a>
+                                <a href="{{ route('productos.edit', $producto) }}" class="btn tertiary-killer"><i
+                                        class="bi bi-pencil fs-5"></i></a>
+
+
+                                <form id="{{ $producto->id }}" action="{{ route('productos.destroy', $producto->id) }}"
+                                    method="POST" >
+                                    @csrf
+                                    <button type="button" class="btn btn-danger delete-button"
+                                        data-id="{{ $producto->id }}">
+                                        <i class="bi bi-trash fs-5"></i>
+                                    </button>
+                                    @method('DELETE')
+                                </form>
+
                             </div>
                         </div>
 

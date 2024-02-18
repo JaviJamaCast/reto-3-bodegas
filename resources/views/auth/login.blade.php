@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="row d-flex justify-content-center align-items-center trabajaConNosotrosClass"">
+    <div class="row d-flex justify-content-center align-items-center trabajaConNosotrosClass">
         <div class="col-md-3 my-2">
             <img class="img-fluid" src="{{ asset('/images/LoginKawaii.png') }}">
         </div>
