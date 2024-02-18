@@ -2,11 +2,12 @@
 
 @section('content')
     <div class="container mb-5">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h1 class="mt-3 m-md-0 custom-shadow">{{ __('producto.productos') }}</h1>
-            <a href="{{ route('productos.create') }}" class="mt-1 m-md-0 btn primary-killer"><i
-                    class="bi bi-plus-lg fs-2"></i></a>
-            <!-- Botón sin margen inferior -->
+        <div class="d-flex justify-content align-items-center my-3 mx-md-3  ">
+            <h1 class="m-1 mx-md-3 custom-shadow">{{ __('producto.productos') }}</h1>
+            <a href="{{ route('productos.create') }}" class="m-2 mx-md-2 btn primary-killer"><i
+                class="bi bi-plus-lg fs-3"></i></a>
+            <a href="{{ route('categorias.index') }}" class="m-2 mx-md-2 btn primary-killer">Categorias</a>
+
         </div>
         <div class="row">
             @foreach ($productos as $producto)

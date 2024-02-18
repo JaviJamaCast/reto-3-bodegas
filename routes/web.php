@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ProductoController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -36,3 +37,4 @@ Route::get('/language/{locale}', [App\Http\Controllers\LanguageController::class
 
 
 Route::resource('/productos', ProductoController::class);
+Route::resource('/categorias', CategoriaController::class);

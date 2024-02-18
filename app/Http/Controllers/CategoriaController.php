@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categoria;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class CategoriaController extends Controller
 {
@@ -12,7 +13,8 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        //
+        $categorias = Categoria::paginate(20);
+        return view('categorias.index', compact('categorias'));
     }
 
     /**
@@ -20,7 +22,7 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        //
+        return view('categorias.create');
     }
 
     /**
@@ -28,7 +30,25 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $lang = App::getLocale();
+        $successMessages = [
+            'es' => '¡Categoría creada correctamente!',
+            'en' => 'Category created successfully!',
+            'eu' => 'Kategoria ondo sortu da!',
+        ];
+
+
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+        ]);
+
+        // Crear una nueva categoría
+        Categoria::create([
+            'nombre' => $request->nombre,
+        ]);
+
+        // Redireccionar con un mensaje de éxito
+        return redirect()->route('categorias.index')->with('success', $successMessages[$lang]);
     }
 
     /**
@@ -44,7 +64,7 @@ class CategoriaController extends Controller
      */
     public function edit(Categoria $categoria)
     {
-        //
+        return view('categorias.edit', compact('categoria'));
     }
 
     /**
@@ -52,7 +72,23 @@ class CategoriaController extends Controller
      */
     public function update(Request $request, Categoria $categoria)
     {
-        //
+        $lang = App::getLocale();
+        $successMessages = [
+            'es' => '¡Categoría actualizada correctamente!',
+            'en' => 'Category updated successfully!',
+            'eu' => 'Kategoria ondo eguneratu da!',
+        ];
+
+
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+        ]);
+
+        $categoria->update([
+            'nombre' => $request->nombre,
+        ]);
+
+        return redirect()->route('categorias.index')->with('success', $successMessages[$lang]);
     }
 
     /**
@@ -60,6 +96,16 @@ class CategoriaController extends Controller
      */
     public function destroy(Categoria $categoria)
     {
-        //
+
+        $lang = App::getLocale();
+        $successMessages = [
+            'es' => '¡Categoría eliminada correctamente!',
+            'en' => 'Category deleted successfully!',
+            'eu' => 'Kategoria ondo ezabatu da!',
+        ];
+
+        $categoria->delete();
+
+        return redirect()->route('categorias.index')->with('success', $successMessages[$lang]);
     }
 }
