@@ -43,13 +43,21 @@
                                 id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                 Perfil
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">Mi perfil</a></li>
-                                <li><a class="dropdown-item" href="#">Configuración</a></li>
+                            <ul class="dropdown-menu dropdownClass" aria-labelledby="dropdownMenuLink">
+                                <li><a class="dropdown-item dropdownItemClass" href="#">Mi perfil</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="{{ route('logout') }}">Cerrar sesión</a></li>
+                                <li> <a class="dropdown-item dropdownItemClass" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                        {{ __('auth.logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </li>
                             </ul>
                         </div>
 
@@ -58,10 +66,10 @@
                                 id="dropdownLanguage" data-bs-toggle="dropdown" aria-expanded="false">
                                 {{ strtoupper(app()->getLocale()) }}
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownLanguage">
-                                <li><a class="dropdown-item" href="{{ url('language/es') }}">ES</a></li>
-                                <li><a class="dropdown-item" href="{{ url('language/en') }}">EN</a></li>
-                                <li><a class="dropdown-item" href="{{ url('language/eu') }}">EU</a></li>
+                            <ul class="dropdown-menu dropdownClass" aria-labelledby="dropdownLanguage">
+                                <li><a class="dropdown-item dropdownItemClass" href="{{ url('language/es') }}">ES</a></li>
+                                <li><a class="dropdown-item dropdownItemClass" href="{{ url('language/en') }}">EN</a></li>
+                                <li><a class="dropdown-item dropdownItemClass" href="{{ url('language/eu') }}">EU</a></li>
                             </ul>
                         </div>
                     </div>
