@@ -7,10 +7,14 @@ use App\Models\Formato;
 use App\Models\Imagen;
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Storage;
 
 class ProductoController extends Controller
 {
+
+
+
     /**
      * Display a listing of the resource.
      */
@@ -35,6 +39,13 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
+         $lang = App::getLocale();
+
+        $successMessages = [
+            'es' => '¡Producto creado correctamente!',
+            'en' => 'Product created successfully!',
+            'eu' => 'Produktua ondo sortu da!',
+        ];
         // Valida los datos de entrada del formulario
         $request->validate([
             'nombre' => 'required|max:255',
@@ -69,7 +80,7 @@ class ProductoController extends Controller
         }
 
         // Redirecciona a la página de inicio o a la vista de detalle del producto creado
-        return redirect()->route('productos.index')->with('success', 'Producto creado correctamente.');
+        return redirect()->route('productos.index')->with('success', $successMessages[$lang]);
     }
 
     /**
@@ -95,6 +106,13 @@ class ProductoController extends Controller
      */
     public function update(Request $request, Producto $producto)
     {
+        $lang = App::getLocale();
+
+        $successMessages = [
+            'es' => '¡Producto actualizado correctamente!',
+            'en' => 'Product updated successfully!',
+            'eu' => 'Produktua ondo eguneratu da!',
+        ];
 
         $request->validate([
             'nombre' => 'required|max:255',
@@ -139,7 +157,7 @@ class ProductoController extends Controller
             $producto->categorias()->sync($request->categorias);
         }
 
-        return redirect()->route('productos.index')->with('success', 'Producto actualizado correctamente.');
+        return redirect()->route('productos.index')->with('success', $successMessages[$lang]);
     }
 
     /**
@@ -147,8 +165,14 @@ class ProductoController extends Controller
      */
     public function destroy(Producto $producto)
     {
+        $lang = App::getLocale();
+        $successMessages = [
+            'es' => '¡Producto eliminado exitosamente!',
+            'en' => 'Product deleted successfully!',
+            'eu' => 'Produktua ondo ezabatu da!',
+        ];
         $producto->delete();
 
-        return redirect()->route('productos.index')->with('success', 'Producto eliminado exitosamente.');
+        return redirect()->route('productos.index')->with('success', $successMessages[$lang]);
     }
 }

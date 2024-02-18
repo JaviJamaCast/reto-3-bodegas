@@ -10,7 +10,37 @@ document.addEventListener("DOMContentLoaded", function () {
     var toggleFiltersButton = document.getElementById("toggleFiltersButton");
     var fileInput = document.getElementById("fileUpload");
     var fileNameDisplay = document.getElementById("fileName");
-
+    const lang = document.documentElement.lang;
+    const swalConfigs = {
+        en: {
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            confirmButtonText: "Yes, delete it!",
+            cancelButtonText: "Cancel",
+            successTitle: "Success!",
+            errorTitle: "Error",
+            confirmButtonText: "OK",
+        },
+        es: {
+            title: "¿Estás seguro?",
+            text: "¡No podrás revertir esto!",
+            confirmButtonText: "Sí, eliminar",
+            cancelButtonText: "Cancelar",
+            successTitle: "¡Éxito!",
+            errorTitle: "Error",
+            confirmButtonText: "OK",
+        },
+        eu: {
+            title: "Ziur zaude?",
+            text: "Ezinezkoa izango da hau desegin!",
+            confirmButtonText: "Bai, ezabatu",
+            cancelButtonText: "Ezeztatu",
+            successTitle: "Arrakasta!",
+            errorTitle: "Errorea",
+            confirmButtonText: "Ados",
+        },
+    };
+    const swalConfig = swalConfigs[lang] || swalConfigs["en"];
     if (toggleFiltersButton) {
         toggleFiltersButton.addEventListener("click", function () {
             var filtersModal = new bootstrap.Modal(
@@ -41,19 +71,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (successMessage) {
         swal.fire({
-            title: "Éxito",
+            title: swalConfig.successTitle,
             text: successMessage,
             icon: "success",
-            confirmButtonText: "OK",
+            confirmButtonText: swalConfig.confirmButtonText,
         });
     }
 
     if (errorMessage) {
         swal.fire({
-            title: "Error",
+            title: swalConfig.errorTitle,
             text: errorMessage,
             icon: "error",
-            confirmButtonText: "OK",
+            confirmButtonText: swalConfig.confirmButtonText,
         });
     }
 
@@ -63,13 +93,14 @@ document.addEventListener("DOMContentLoaded", function () {
             e.preventDefault();
             const form = this.form;
             swal.fire({
-                title: "¿Estás seguro?",
-                text: "No podrás revertir esto!",
+                title: swalConfig.title,
+                text: swalConfig.text,
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",
                 cancelButtonColor: "#d33",
-                confirmButtonText: "Sí, eliminar!",
+                confirmButtonText: swalConfig.confirmButtonText,
+                cancelButtonText: swalConfig.cancelButtonText,
             }).then((result) => {
                 if (result.isConfirmed) {
                     form.submit();
