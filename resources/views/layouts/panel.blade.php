@@ -44,7 +44,7 @@
                                 Perfil
                             </a>
                             <ul class="dropdown-menu dropdownClass" aria-labelledby="dropdownMenuLink">
-                                <li><a class="dropdown-item dropdownItemClass" href="#">Mi perfil</a></li>
+                                <li><a class="dropdown-item dropdownItemClass" href="#"> {{ __('offCanvas.miPerfil') }}</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
