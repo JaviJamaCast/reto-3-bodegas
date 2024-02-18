@@ -16,7 +16,7 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        $productos = Producto::all();
+        $productos = Producto::with('imagenes')->paginate(12);
         return view('productos.index', compact('productos'));
     }
 
@@ -95,14 +95,13 @@ class ProductoController extends Controller
      */
     public function update(Request $request, Producto $producto)
     {
-        // Valida los datos de entrada del formulario
+
         $request->validate([
             'nombre' => 'required|max:255',
             'descripcion' => 'required',
             'referencia' => 'required',
             'precio' => 'required|numeric',
             'formato_id' => 'required|exists:formatos,id',
-            // Asumiendo que la actualización de categorías e imágenes también es requerida
             'categorias' => 'sometimes|array',
             'categorias.*' => 'exists:categorias,id',
             'imagenes' => 'sometimes|array',
@@ -111,22 +110,20 @@ class ProductoController extends Controller
             'deleteImagenes.*' => 'exists:imagenes,id',
         ]);
 
-        // Actualiza los detalles del producto
+
         $producto->update($request->all());
 
 
         if ($request->has('deleteImagenes')) {
             foreach ($request->deleteImagenes as $imagenId) {
                 $imagen = Imagen::findOrFail($imagenId);
-                Storage::delete($imagen->nombre); // Elimina el archivo de imagen del almacenamiento
-                $imagen->delete(); // Elimina el registro de la base de datos
+                Storage::delete($imagen->nombre);
+                $imagen->delete();
             }
         }
 
-        // Maneja la actualización de imágenes asociadas al producto
         if ($request->hasFile('imagenes')) {
-            // Aquí podrías eliminar las imágenes antiguas si es necesario
-            // o marcar algunas para mantener basado en alguna lógica específica
+
 
             foreach ($request->file('imagenes') as $imagen) {
                 $nombreImagen = $imagen->getClientOriginalName();
@@ -138,12 +135,10 @@ class ProductoController extends Controller
             }
         }
 
-        // Actualiza las asociaciones de categorías si es necesario
         if ($request->has('categorias')) {
             $producto->categorias()->sync($request->categorias);
         }
 
-        // Redirecciona a la vista del producto actualizado con un mensaje de éxito
         return redirect()->route('productos.index')->with('success', 'Producto actualizado correctamente.');
     }
 

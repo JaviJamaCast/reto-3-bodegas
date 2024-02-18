@@ -1,8 +1,8 @@
 // Fonts
 @import url("https://fonts.bunny.net/css?family=Nunito");
 
-@import '@fortawesome/fontawesome-free/css/all.css';
-@import 'bootstrap-icons/font/bootstrap-icons.css';
+@import "@fortawesome/fontawesome-free/css/all.css";
+@import "bootstrap-icons/font/bootstrap-icons.css";
 // Variables
 @import "variables";
 
@@ -42,7 +42,7 @@
     background-color: $quaternary-color !important;
     min-height: calc(100vh - 100px);
 }
-.contentPanel{
+.contentPanel {
     background-color: $quaternary-color !important;
     min-height: calc(100vh - 38px);
 }
@@ -120,9 +120,8 @@
     }
 }
 
-
-.link-killer{
-    margin: 0 0 0 .7em;
+.link-killer {
+    margin: 0 0 0 0.7em;
     color: $quaternary-color;
 
     &:hover {
@@ -142,32 +141,65 @@
     background-color: $tertiary-color !important;
     color: #fff;
 }
-.dropdownClass{
+.dropdownClass {
     background-color: $tertiary-color;
     color: #fff !important;
-
 }
-.dropdownItemClass{
-    color:#fff;
-    &:hover{
+.dropdownItemClass {
+    color: #fff;
+    &:hover {
         background-color: darken($tertiary-color, 10%) !important;
-        color:#fff;
+        color: #fff;
     }
 }
-.color-quaternary-killer{
+.color-quaternary-killer {
     color: $quaternary-color;
- }
+}
 
- .bg-primary-killer{
+.bg-primary-killer {
     background-color: $primary-color;
 }
 
-.bg-tertiary-killer{
-    background-color: $tertiary-color;
+.bg-tertiary-killer {
+    background-color: $tertiary-color !important;
 }
-.color-secondary-killer{
-   color: $secondary-color;
+.color-secondary-killer {
+    color: $secondary-color;
 }
-.color-primary-killer{
+.color-primary-killer {
     color: $primary-color;
- }
+}
+
+.pagination .page-item.active .page-link {
+    background-color: $secondary-color !important;
+    border-color: $secondary-color !important;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: $tertiary-color !important;
+    border-color: $primary-color !important;
+    color: $quaternary-color;
+}
+
+.pagination .page-item.disabled .page-link {
+    background-color: $primary-color !important;
+    border-color: $primary-color !important;
+}
+
+.pagination .page-item.disabled .page-link {
+    color: $quaternary-color;
+}
+
+.pagination .page-item .page-link {
+    background-color: $secondary-color !important;
+    border-color: $primary-color !important;
+    color: $tertiary-color;
+    &:hover {
+        color: $quaternary-color;
+    }
+}
+.custom-shadow {
+    background-color: $secondary-color;
+    padding: .4em;
+    border-radius: .4em;
+}

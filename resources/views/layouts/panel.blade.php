@@ -5,6 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="success-message" content="{{ session('success') }}">
+    <meta name="error-message" content="{{ session('error') }}">
+
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
@@ -44,7 +47,8 @@
                                 Perfil
                             </a>
                             <ul class="dropdown-menu dropdownClass" aria-labelledby="dropdownMenuLink">
-                                <li><a class="dropdown-item dropdownItemClass" href="#"> {{ __('offCanvas.miPerfil') }}</a></li>
+                                <li><a class="dropdown-item dropdownItemClass" href="#">
+                                        {{ __('offCanvas.miPerfil') }}</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -67,9 +71,12 @@
                                 {{ strtoupper(app()->getLocale()) }}
                             </a>
                             <ul class="dropdown-menu dropdownClass" aria-labelledby="dropdownLanguage">
-                                <li><a class="dropdown-item dropdownItemClass" href="{{ url('language/es') }}">ES</a></li>
-                                <li><a class="dropdown-item dropdownItemClass" href="{{ url('language/en') }}">EN</a></li>
-                                <li><a class="dropdown-item dropdownItemClass" href="{{ url('language/eu') }}">EU</a></li>
+                                <li><a class="dropdown-item dropdownItemClass" href="{{ url('language/es') }}">ES</a>
+                                </li>
+                                <li><a class="dropdown-item dropdownItemClass" href="{{ url('language/en') }}">EN</a>
+                                </li>
+                                <li><a class="dropdown-item dropdownItemClass" href="{{ url('language/eu') }}">EU</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
