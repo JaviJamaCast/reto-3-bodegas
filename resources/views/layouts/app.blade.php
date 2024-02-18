@@ -66,11 +66,11 @@
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }}
+                            {{ Auth::user()->nombre_usuario }}
                         </a>
 
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
+                        <div class="dropdown-menu dropdown-menu-end dropdownClass" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item dropdownItemClass" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
                                 {{ __('auth.logout') }}
@@ -103,7 +103,7 @@
     </div>
 </nav>
 
-<div  class="container-fluid d-flex flex-column justify-content-between content" >
+<div  class="container-fluid d-flex flex-column justify-content-between contentLayout" >
     @yield('content')
 </div>
 

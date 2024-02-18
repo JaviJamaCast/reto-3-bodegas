@@ -1,6 +1,8 @@
 // Fonts
 @import url("https://fonts.bunny.net/css?family=Nunito");
 
+@import '@fortawesome/fontawesome-free/css/all.css';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
 // Variables
 @import "variables";
 
@@ -36,9 +38,23 @@
 .footer {
     background-color: $secondary-color;
 }
-.content {
+.contentLayout {
     background-color: $quaternary-color !important;
     min-height: calc(100vh - 100px);
+}
+.contentPanel{
+    background-color: $quaternary-color !important;
+    min-height: calc(100vh - 38px);
+}
+
+.nav-pills .nav-link.active {
+    margin: auto;
+    border-radius: 0.7em;
+    background-color: $quaternary-color;
+    color: #fff;
+    &:hover {
+        background-color: darken($tertiary-color, 10%) !important;
+    }
 }
 
 #carruselWelcome {
