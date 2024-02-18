@@ -111,6 +111,16 @@
     }
 }
 
+.btn.primary-killer-out {
+    background-color: $quaternary-color !important;
+    color: $primary-color;
+    transition: background-color 0.3s ease;
+    &:hover {
+        background-color: darken($quaternary-color, 10%) !important;
+    }
+}
+
+
 .link-killer{
     margin: 0 0 0 .7em;
     color: $quaternary-color;
@@ -144,4 +154,20 @@
         color:#fff;
     }
 }
+.color-quaternary-killer{
+    color: $quaternary-color;
+ }
 
+ .bg-primary-killer{
+    background-color: $primary-color;
+}
+
+.bg-tertiary-killer{
+    background-color: $tertiary-color;
+}
+.color-secondary-killer{
+   color: $secondary-color;
+}
+.color-primary-killer{
+    color: $primary-color;
+ }

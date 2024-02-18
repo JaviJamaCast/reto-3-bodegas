@@ -15,10 +15,10 @@
 <div class="contentPanel">
     <div class="container">
         <div class="row">
-            <div class="col-12 text-end m-5">
+            <div class="col-12 text-center mt-2">
                 <button class="btn primary-killer" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvas" aria-controls="offcanvas">
-                    Menu
+                    <i class="bi bi-house fs-1 color-quaternary-killer"></i>
                 </button>
             </div>
 
@@ -31,9 +31,9 @@
                 </div>
                 <div class="offcanvas-body">
                     <div class="list-group mb-2">
-                        <a href="#" class="list-group-item list-group-item-action py-3">Enlace 1</a>
-                        <a href="#" class="list-group-item list-group-item-action py-3">Enlace 2</a>
-                        <a href="#" class="list-group-item list-group-item-action py-3">Enlace 3</a>
+                        <a href="#" class="list-group-item list-group-item-action py-3 mb-3">Enlace 1</a>
+                        <a href="#" class="list-group-item list-group-item-action py-3 mb-3">Enlace 2</a>
+                        <a href="#" class="list-group-item list-group-item-action py-3 mb-3">Enlace 3</a>
                         <!-- Agrega más enlaces según sea necesario -->
                     </div>
                 </div>
