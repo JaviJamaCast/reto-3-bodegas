@@ -15,14 +15,14 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        $this->crearDatosBasicos();
+       /*  $this->crearDatosBasicos(); */
         $this->call([
             RolSeeder::class,
             AdminSeeder::class
         ]);
         // Asegurar existencia de datos básicos
 
-        Cliente::all()->each(function ($cliente) {
+     /*    Cliente::all()->each(function ($cliente) {
             $cliente->pedidos()->saveMany(Pedido::factory(rand(1, 5))->make())
                 ->each(function ($pedido) {
                     // Asegurarse de que existan usuarios y asociarlos
@@ -45,7 +45,7 @@ class DatabaseSeeder extends Seeder
                             ]);
                         });
                 });
-        });
+        }); */
 
     }
 
