@@ -33,7 +33,7 @@ class AdminSeeder extends Seeder
             'apellidos' => 'Jamaica Castaño',
             'email' => 'juliana@email.com',
             'password' => Hash::make('12345678'),
-            'foto_perfil' => '/imagenes/default.jpg',,
+            'foto_perfil' => '/imagenes/default.jpg',
             'email_verified_at' => now(),
         ]);
 
