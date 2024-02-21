@@ -20,7 +20,7 @@ class AdminSeeder extends Seeder
             'apellidos' => 'Jamaica Castaño',
             'email' => 'javier@email.com',
             'password' => Hash::make('12345678'),
-            'foto_perfil' => 'assets/image/default.jpg',
+            'foto_perfil' => '/imagenes/default.jpg',
             'email_verified_at' => now(),
         ]);
 
@@ -33,7 +33,7 @@ class AdminSeeder extends Seeder
             'apellidos' => 'Jamaica Castaño',
             'email' => 'juliana@email.com',
             'password' => Hash::make('12345678'),
-            'foto_perfil' => 'assets/image/default.jpg',,
+            'foto_perfil' => '/imagenes/default.jpg',,
             'email_verified_at' => now(),
         ]);
 
@@ -46,7 +46,7 @@ class AdminSeeder extends Seeder
             'apellidos' => 'Perea',
             'email' => 'perea@email.com',
             'password' => Hash::make('12345678'),
-            'foto_perfil' => 'assets/image/default.jpg',
+            'foto_perfil' => '/imagenes/default.jpg',
             'email_verified_at' => now(),
         ]);
 
