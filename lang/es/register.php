@@ -18,6 +18,8 @@ return [
     'name' => 'Nombre',
     'password' => 'Contraseña',
     'confirmPassword' => 'Confirmar contraseña',
-
-
+    'apellidos' => 'Apellidos',
+    'foto' => 'Foto de perfil',
+    'usuarioN' => 'Nombre de usuario',
+    'fotoCrear' => 'Seleccionar foto',
 ];

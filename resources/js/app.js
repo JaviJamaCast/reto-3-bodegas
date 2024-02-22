@@ -9,6 +9,7 @@ window.Swal = swal;
 document.addEventListener("DOMContentLoaded", function () {
     var toggleFiltersButton = document.getElementById("toggleFiltersButton");
     var fileInput = document.getElementById("fileUpload");
+    var fotoPerfil = document.getElementById("foto_perfil");
     var fileNameDisplay = document.getElementById("fileName");
     const lang = document.documentElement.lang;
     const swalConfigs = {
@@ -61,6 +62,12 @@ document.addEventListener("DOMContentLoaded", function () {
                     this.files.length + " archivo/s seleccionados";
             });
         }
+    }
+
+    if (fotoPerfil) {
+        fotoPerfil.addEventListener("change", function () {
+            fileNameDisplay.textContent = fotoPerfil.files[0].name;
+        });
     }
     const successMessage = document
         .querySelector('meta[name="success-message"]')
