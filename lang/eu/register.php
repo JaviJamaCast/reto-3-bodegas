@@ -12,12 +12,14 @@ return [
     | these language lines according to your application's requirements.
     |*/
     'registerL' => 'Erregistratu',
-    'registerB' => 'Erregistratu',
-    'name' => 'Izena',
+    'registerB' => 'Izena eman',
     'email' => 'Posta elektronikoa',
+    'name' => 'Izena',
     'password' => 'Pasahitza',
-    'confirmPassword' => 'Pasahitza berretsi',
-
-
+    'confirmPassword' => 'Baieztatu pasahitza',
+    'apellidos' => 'Abizenak',
+    'foto' => 'Profilaren argazkia',
+    'usuarioN' => 'Erabiltzaile-izena',
+    'fotoCrear' => 'Argazkia hautatu',
 
 ];

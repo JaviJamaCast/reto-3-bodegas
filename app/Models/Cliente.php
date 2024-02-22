@@ -8,14 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Cliente extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'codigo_acceso',
+        'nombre',
+        'apellidos',
+        'telefono',
+        'direccion',
+        'email',
+        'foto_perfil',
+    ];
 
-
-    public function pedidos() {
+    public function pedidos()
+    {
         return $this->hasMany(Pedido::class);
     }
-
-
 }
-
-
-

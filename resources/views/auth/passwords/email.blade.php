@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
+
+    <div class="row d-flex justify-content-center align-items-center trabajaConNosotrosClass">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('resetPassword.label') }}</div>
+                <div class="card-header cardClassHeader">{{ __('resetPassword.label') }}</div>
 
-                <div class="card-body">
+                <div class="card-body cardClass">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
@@ -33,7 +33,7 @@
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn primary-killer">
                                     {{ __('resetPassword.buttonReset') }}
                                 </button>
                             </div>
@@ -43,5 +43,5 @@
             </div>
         </div>
     </div>
-</div>
+
 @endsection

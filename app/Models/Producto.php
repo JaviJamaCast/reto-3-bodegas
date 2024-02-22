@@ -8,7 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Producto extends Model
 {
     use HasFactory;
-
+    protected $fillable = [
+        'formato_id',
+        'descripcion',
+        'referencia',
+        'nombre',
+        'precio',
+    ];
 
     public function categorias() {
         return $this->belongsToMany(Categoria::class)->withTimestamps();;

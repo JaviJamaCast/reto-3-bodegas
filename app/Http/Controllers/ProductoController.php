@@ -2,17 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categoria;
+use App\Models\Formato;
+use App\Models\Imagen;
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Storage;
 
 class ProductoController extends Controller
 {
+
+
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $productos = Producto::with('imagenes')->paginate(12);
+        return view('productos.index', compact('productos'));
     }
 
     /**
@@ -20,7 +29,9 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        //
+        $categorias = Categoria::all();
+        $formatos = Formato::all();
+        return view('productos.create', compact(['formatos', 'categorias']));
     }
 
     /**
@@ -28,7 +39,48 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $lang = App::getLocale();
+
+        $successMessages = [
+            'es' => '¡Producto creado correctamente!',
+            'en' => 'Product created successfully!',
+            'eu' => 'Produktua ondo sortu da!',
+        ];
+        // Valida los datos de entrada del formulario
+        $request->validate([
+            'nombre' => 'required|max:255',
+            'descripcion' => 'required',
+            'referencia' => 'required',
+            'precio' => 'required|numeric',
+            'formato_id' => 'required|exists:formatos,id',
+            'categorias' => 'required|array',
+            'categorias.*' => 'exists:categorias,id',
+            'imagenes' => 'required|array',
+            'imagenes.*' => 'image|max:10240 ', // 2MB max size per image
+        ]);
+
+        // Crea un nuevo producto
+        $producto = Producto::create($request->all());
+
+        // Guarda las imágenes asociadas al producto
+        if ($request->hasFile('imagenes')) {
+            foreach ($request->file('imagenes') as $imagen) {
+                $nombreImagen = $imagen->getClientOriginalName();
+                $rutaImagen = $imagen->storeAs('imagenes', $nombreImagen, 'public');
+                Imagen::create([
+                    'producto_id' => $producto->id,
+                    'nombre' => $rutaImagen,
+                ]);
+            }
+        }
+
+        // Asocia las categorías al producto
+        if ($request->has('categorias')) {
+            $producto->categorias()->attach($request->categorias);
+        }
+
+        // Redirecciona a la página de inicio o a la vista de detalle del producto creado
+        return redirect()->route('productos.index')->with('success', $successMessages[$lang]);
     }
 
     /**
@@ -36,7 +88,7 @@ class ProductoController extends Controller
      */
     public function show(Producto $producto)
     {
-        //
+        return view('productos.show', compact('producto'));
     }
 
     /**
@@ -44,7 +96,9 @@ class ProductoController extends Controller
      */
     public function edit(Producto $producto)
     {
-        //
+        $categorias = Categoria::all();
+        $formatos = Formato::all();
+        return view('productos.edit', compact(['producto', 'formatos', 'categorias']));
     }
 
     /**
@@ -52,7 +106,58 @@ class ProductoController extends Controller
      */
     public function update(Request $request, Producto $producto)
     {
-        //
+        $lang = App::getLocale();
+
+        $successMessages = [
+            'es' => '¡Producto actualizado correctamente!',
+            'en' => 'Product updated successfully!',
+            'eu' => 'Produktua ondo eguneratu da!',
+        ];
+
+        $request->validate([
+            'nombre' => 'required|max:255',
+            'descripcion' => 'required',
+            'referencia' => 'required',
+            'precio' => 'required|numeric',
+            'formato_id' => 'required|exists:formatos,id',
+            'categorias' => 'sometimes|array',
+            'categorias.*' => 'exists:categorias,id',
+            'imagenes' => 'sometimes|array',
+            'imagenes.*' => 'image|max:10240',
+            'deleteImagenes' => 'sometimes|array',
+            'deleteImagenes.*' => 'exists:imagenes,id',
+        ]);
+
+
+        $producto->update($request->all());
+
+
+        if ($request->has('deleteImagenes')) {
+            foreach ($request->deleteImagenes as $imagenId) {
+                $imagen = Imagen::findOrFail($imagenId);
+                Storage::delete($imagen->nombre);
+                $imagen->delete();
+            }
+        }
+
+        if ($request->hasFile('imagenes')) {
+
+
+            foreach ($request->file('imagenes') as $imagen) {
+                $nombreImagen = $imagen->getClientOriginalName();
+                $rutaImagen = $imagen->storeAs('imagenes', $nombreImagen, 'public');
+                Imagen::create([
+                    'producto_id' => $producto->id,
+                    'nombre' => $rutaImagen,
+                ]);
+            }
+        }
+
+        if ($request->has('categorias')) {
+            $producto->categorias()->sync($request->categorias);
+        }
+
+        return redirect()->route('productos.index')->with('success', $successMessages[$lang]);
     }
 
     /**
@@ -60,6 +165,14 @@ class ProductoController extends Controller
      */
     public function destroy(Producto $producto)
     {
-        //
+        $lang = App::getLocale();
+        $successMessages = [
+            'es' => '¡Producto eliminado exitosamente!',
+            'en' => 'Product deleted successfully!',
+            'eu' => 'Produktua ondo ezabatu da!',
+        ];
+        $producto->delete();
+
+        return redirect()->route('productos.index')->with('success', $successMessages[$lang]);
     }
 }

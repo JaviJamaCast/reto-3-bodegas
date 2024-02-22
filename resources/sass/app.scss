@@ -1,8 +1,221 @@
 // Fonts
-@import url('https://fonts.bunny.net/css?family=Nunito');
+@import url("https://fonts.bunny.net/css?family=Nunito");
 
+@import "@fortawesome/fontawesome-free/css/all.css";
+@import "bootstrap-icons/font/bootstrap-icons.css";
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bootstrap
-@import 'bootstrap/scss/bootstrap';
+@import "bootstrap/scss/bootstrap";
+
+.navbar {
+    background-color: $secondary-color !important;
+}
+
+.navbar-nav .nav-link.active {
+    margin: auto;
+    border-radius: 0.7em;
+    background-color: $tertiary-color;
+    color: #fff;
+    &:hover {
+        background-color: darken($tertiary-color, 10%) !important;
+    }
+}
+
+.nav-item {
+    text-align: center;
+    padding: 0.3em 0.5em 0.3em 0.5em;
+}
+
+.dropdown-menu.show {
+    width: auto !important;
+}
+.dropdown-menu {
+    width: 120px !important;
+}
+
+.footer {
+    background-color: $secondary-color;
+}
+.contentLayout {
+    background-color: $quaternary-color !important;
+    min-height: calc(100vh - 100px);
+}
+.contentPanel {
+    background-color: $quaternary-color !important;
+    min-height: calc(100vh - 38px);
+}
+
+.nav-pills .nav-link.active {
+    margin: auto;
+    border-radius: 0.7em;
+    background-color: $quaternary-color;
+    color: #fff;
+    &:hover {
+        background-color: darken($tertiary-color, 10%) !important;
+    }
+}
+
+#carruselWelcome {
+    margin: 1em 0 0 0;
+}
+
+.carousel-item {
+    height: 50vh;
+    overflow: hidden;
+    img {
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.btn.primary-killer {
+    background-color: $primary-color !important;
+    color: #000000;
+    transition: background-color 0.3s ease;
+    &:hover {
+        background-color: darken($primary-color, 10%) !important;
+    }
+}
+
+.btn.secondary-killer {
+    background-color: $secondary-color !important;
+    color: #000000;
+    transition: background-color 0.3s ease;
+    &:hover {
+        background-color: darken($secondary-color, 10%) !important;
+    }
+}
+
+.btn.tertiary-killer {
+    background-color: $tertiary-color !important;
+    color: #fff;
+    transition: background-color 0.3s ease;
+    &:hover {
+        background-color: darken($tertiary-color, 10%) !important;
+    }
+}
+.btn.quaternary-killer {
+    background-color: $quaternary-color !important;
+    color: #fff;
+    transition: background-color 0.3s ease;
+    &:hover {
+        background-color: darken($quaternary-color, 10%) !important;
+    }
+}
+
+.btn.primary-killer-out {
+    background-color: $quaternary-color !important;
+    color: $primary-color;
+    transition: background-color 0.3s ease;
+    &:hover {
+        background-color: darken($quaternary-color, 10%) !important;
+    }
+}
+
+.link-killer {
+    margin: 0 0 0 0.7em;
+    color: $quaternary-color;
+
+    &:hover {
+        color: darken($quaternary-color, 10%) !important;
+    }
+}
+
+.trabajaConNosotrosClass {
+    min-height: calc(100vh - 250px);
+}
+
+.cardClass {
+    background-color: $secondary-color !important;
+    max-width: 70em;
+}
+
+.cardClassHeader {
+    background-color: $tertiary-color !important;
+    color: #fff;
+}
+.dropdownClass {
+    background-color: $tertiary-color;
+    color: #fff !important;
+}
+.dropdownItemClass {
+    color: #fff;
+    &:hover {
+        background-color: darken($tertiary-color, 10%) !important;
+        color: #fff;
+    }
+}
+.color-quaternary-killer {
+    color: $quaternary-color;
+}
+
+.bg-primary-killer {
+    background-color: $primary-color;
+}
+
+.bg-tertiary-killer {
+    background-color: $tertiary-color !important;
+}
+
+.bg-quaternary-killer {
+    background-color: $quaternary-color !important;
+}
+
+.color-secondary-killer {
+    color: $secondary-color;
+}
+.color-primary-killer {
+    color: $primary-color;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: $secondary-color !important;
+    border-color: $secondary-color !important;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: $tertiary-color !important;
+    border-color: $primary-color !important;
+    color: $quaternary-color;
+}
+
+.pagination .page-item.disabled .page-link {
+    background-color: $primary-color !important;
+    border-color: $primary-color !important;
+}
+
+.pagination .page-item.disabled .page-link {
+    color: $quaternary-color;
+}
+
+.pagination .page-item .page-link {
+    background-color: $secondary-color !important;
+    border-color: $primary-color !important;
+    color: $tertiary-color;
+    &:hover {
+        color: $quaternary-color;
+    }
+}
+.custom-shadow {
+    background-color: $secondary-color;
+    padding: 0.4em;
+    border-radius: 0.4em;
+}
+.index {
+    height: 13.8em;
+}
+
+
+@media (min-width: 992px) {
+    .index {
+        height: 20.5em;
+    }
+}

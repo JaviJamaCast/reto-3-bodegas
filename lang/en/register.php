@@ -14,10 +14,13 @@ return [
     */
 
     'registerL' => 'Register',
-    'registerB' => 'Register',
+    'registerB' => 'Sign Up',
     'email' => 'Email',
     'name' => 'Name',
     'password' => 'Password',
-    'confirmPassword' => 'Confirm password',
-
+    'confirmPassword' => 'Confirm Password',
+    'apellidos' => 'Last Name',
+    'foto' => 'Profile Picture',
+    'usuarioN' => 'Username',
+    'fotoCrear' => 'Select Photo',
 ];
