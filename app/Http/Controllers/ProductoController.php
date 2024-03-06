@@ -39,7 +39,7 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-         $lang = App::getLocale();
+        $lang = App::getLocale();
 
         $successMessages = [
             'es' => '¡Producto creado correctamente!',

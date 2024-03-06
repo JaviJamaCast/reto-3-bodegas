@@ -66,7 +66,7 @@
                                 class="col-md-4 col-form-label text-md-end">{{ __('register.foto') }}</label>
                             <div class="col-md-6">
                                 <input type="file" class="form-control d-none" name="foto_perfil" id="foto_perfil"
-                                    accept=".png,.jpg,.jpeg" required>
+                                    accept=".png,.jpg,.jpeg" >
                                 <label class="btn tertiary-killer mx-3"
                                     for="foto_perfil">{{ __('register.fotoCrear') }}</label>
                                 <span id="fileName"></span>

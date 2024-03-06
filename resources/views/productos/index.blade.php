@@ -5,8 +5,25 @@
         <div class="d-flex justify-content align-items-center my-3 mx-md-3  ">
             <h1 class="m-1 mx-md-3 custom-shadow">{{ __('producto.productos') }}</h1>
             <a href="{{ route('productos.create') }}" class="m-2 mx-md-2 btn primary-killer"><i
-                class="bi bi-plus-lg fs-3"></i></a>
-            <a href="{{ route('categorias.index') }}" class="m-2 mx-md-2 btn primary-killer">{{ __('producto.categoriaL') }}</a>
+                    class="bi bi-plus-lg fs-3"></i></a>
+            <div class="d-none d-md-block">
+
+                <a href="{{ route('categorias.index') }}"
+                    class="m-2 mx-md-2 btn primary-killer">{{ __('producto.categoriaL') }}</a>
+                <a href="{{ route('formatos.index') }}"
+                    class="m-2 mx-md-2 btn primary-killer">{{ __('producto.formatoL') }}</a>
+            </div>
+            <div class="d-md-none">
+                <button class="btn primary-killer dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Menú
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{{ route('categorias.index') }}">{{ __('producto.categoriaL') }}</a>
+                    </li>
+                    <li><a class="dropdown-item" href="{{ route('formatos.index') }}">{{ __('producto.formatoL') }}</a></li>
+                </ul>
+            </div>
 
         </div>
         <div class="row">
@@ -39,9 +56,9 @@
                                 alt="{{ $producto->nombre }}">
                         @elseif($producto->imagenes->count() == 0)
                             <img src="{{ asset('images/default.jpg') }}" class="card-img-top"
-                                alt="{{ $producto->nombre }}">
+                                style="height: 40vh !important;" alt="{{ $producto->nombre }}">
                         @endif
-                        <div class="card-body">
+                        <div class="card-body flex-container">
                             <h5 class="card-title"><strong>{{ $producto->nombre }}</strong></h5>
                             <p class="card-text"><strong>{{ __('producto.precio') }}</strong> ${{ $producto->precio }} |
                                 <strong>{{ __('producto.formato') }}</strong>
@@ -66,13 +83,10 @@
 
                             </div>
                         </div>
-
-
-
                     </div>
                 </div>
             @endforeach
-            <div class="d-flex justify-content-center"> <!-- Utilizamos flexbox para centrar los enlaces de paginación -->
+            <div class="d-flex justify-content-center">
                 {{ $productos->links() }}
             </div>
         </div>

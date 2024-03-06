@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Formato;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class FormatoController extends Controller
 {
@@ -12,7 +13,8 @@ class FormatoController extends Controller
      */
     public function index()
     {
-        //
+        $formatos = Formato::paginate(18);
+        return view('formatos.index', compact('formatos'));
     }
 
     /**
@@ -20,7 +22,7 @@ class FormatoController extends Controller
      */
     public function create()
     {
-        //
+        return view('formatos.create');
     }
 
     /**
@@ -28,7 +30,25 @@ class FormatoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $lang = App::getLocale();
+        $successMessages = [
+            'es' => 'Formato creado correctamente!',
+            'en' => 'Format created successfully!',
+            'eu' => 'Formatua ondo sortu da!',
+        ];
+
+
+        $request->validate([
+            'formato' => 'required|string|max:255',
+        ]);
+
+        // Crear una nueva categoría
+        Formato::create([
+            'formato' => $request->formato,
+        ]);
+
+        // Redireccionar con un mensaje de éxito
+        return redirect()->route('formatos.index')->with('success', $successMessages[$lang]);
     }
 
     /**
@@ -44,7 +64,7 @@ class FormatoController extends Controller
      */
     public function edit(Formato $formato)
     {
-        //
+        return view('formatos.edit', compact('formato'));
     }
 
     /**
@@ -52,7 +72,23 @@ class FormatoController extends Controller
      */
     public function update(Request $request, Formato $formato)
     {
-        //
+        $lang = App::getLocale();
+        $successMessages = [
+            'es' => 'Formato actualizado correctamente!',
+            'en' => 'Format updated successfully!',
+            'eu' => 'Formatua ondo eguneratu da!',
+        ];
+
+
+        $request->validate([
+            'formato' => 'required|string|max:255',
+        ]);
+
+        $formato->update([
+            'formato' => $request->formato,
+        ]);
+
+        return redirect()->route('formatos.index')->with('success', $successMessages[$lang]);
     }
 
     /**
@@ -60,6 +96,15 @@ class FormatoController extends Controller
      */
     public function destroy(Formato $formato)
     {
-        //
+        $lang = App::getLocale();
+        $successMessages = [
+            'es' => 'Formato eliminado correctamente!',
+            'en' => 'Format deleted successfully!',
+            'eu' => 'Formatua  ondo ezabatu da!',
+        ];
+
+        $formato->delete();
+
+        return redirect()->route('formatos.index')->with('success', $successMessages[$lang]);
     }
 }

@@ -22,28 +22,28 @@
 
                     <div class="mb-3">
                         <label for="nombre" class="form-label">{{ __('producto.nombre') }}</label>
-                        <input type="text" name="nombre" class="form-control" value="{{ $producto->nombre }}" required>
+                        <input type="text" name="nombre" class="form-control bg-primary-killer" value="{{ $producto->nombre }}" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="descripcion" class="form-label">{{ __('producto.descripcion') }}</label>
-                        <textarea name="descripcion" class="form-control" rows="3" required>{{ $producto->descripcion }}</textarea>
+                        <textarea name="descripcion" class="form-control bg-primary-killer" rows="3" required>{{ $producto->descripcion }}</textarea>
                     </div>
 
                     <div class="mb-3">
                         <label for="referencia" class="form-label">{{ __('producto.referencia') }}</label>
-                        <input type="text" name="referencia" class="form-control" value="{{ $producto->referencia }}"
+                        <input type="text" name="referencia" class="form-control bg-primary-killer" value="{{ $producto->referencia }}"
                             required>
                     </div>
 
                     <div class="mb-3">
                         <label for="precio" class="form-label">{{ __('producto.precio') }}</label>
-                        <input type="number" name="precio" class="form-control" value="{{ $producto->precio }}" required>
+                        <input type="number" name="precio" step="any" min="00.1" max="99.99"  class="form-control bg-primary-killer" value="{{ $producto->precio }}" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="formato_id" class="form-label">{{ __('producto.formato') }}</label>
-                        <select name="formato_id" class="form-control" required>
+                        <select name="formato_id" class="form-control bg-primary-killer" required>
                             @foreach ($formatos as $formato)
                                 <option value="{{ $formato->id }}"
                                     {{ $producto->formato_id == $formato->id ? 'selected' : '' }}>
@@ -52,8 +52,8 @@
                         </select>
                     </div>
 
-                    <div class="card mb-3">
-                        <div class="card-body">
+                    <div class="card mb-3 bg-primary-killer">
+                        <div class="card-body ">
                             <h5 class="card-title">{{ __('producto.categorias') }}</h5>
                             <div class="row">
                                 @foreach ($categorias as $categoria)

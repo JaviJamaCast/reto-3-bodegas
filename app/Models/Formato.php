@@ -9,6 +9,8 @@ class Formato extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['formato'];
+
     public function productos() {
         return $this->hasMany(Producto::class);
     }

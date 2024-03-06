@@ -1,7 +1,7 @@
 @extends('layouts.panel')
 
 @section('content')
-    <div class="container">
+    <div class="container mb-5">
         <h1 class="mb-4">{{ __('producto.crearProductoL') }}</h1>
         <a href="{{ route('productos.index') }}" class="btn tertiary-killer my-2">{{ __('producto.volverBt') }}</a>
         @if ($errors->any())
@@ -21,27 +21,27 @@
 
                     <div class="mb-3">
                         <label for="nombre" class="form-label">{{ __('producto.nombre') }}</label>
-                        <input type="text" name="nombre" class="form-control" required>
+                        <input type="text" name="nombre" class="form-control bg-primary-killer" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="descripcion" class="form-label">{{ __('producto.descripcion') }}</label>
-                        <textarea name="descripcion" class="form-control" rows="3" required></textarea>
+                        <textarea name="descripcion" class="form-control bg-primary-killer" rows="3" required></textarea>
                     </div>
 
                     <div class="mb-3">
                         <label for="referencia" class="form-label">{{ __('producto.referencia') }}</label>
-                        <input type="text" name="referencia" class="form-control" required>
+                        <input type="text" name="referencia" class="form-control bg-primary-killer" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="precio" class="form-label">{{ __('producto.precio') }}</label>
-                        <input type="number" name="precio" class="form-control" required>
+                        <input type="number" step="any" name="precio" min="00.1" max="99.99"  class="form-control bg-primary-killer" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="formato_id" class="form-label">{{ __('producto.formato') }}</label>
-                        <select name="formato_id" class="form-select" required>
+                        <select name="formato_id" class="form-select bg-primary-killer" required>
                             @foreach ($formatos as $formato)
                                 <option value="{{ $formato->id }}">{{ $formato->formato }}</option>
                             @endforeach
@@ -65,7 +65,7 @@
                     <div class="my-3">
                         <label for="fileUpload" class="form-label">{{ __('producto.imagenes') }}</label>
                         <input type="file" class="form-control d-none" name="imagenes[]" id="fileUpload"
-                            accept=".png,.jpg,.jpeg" multiple required>
+                            accept=".png,.jpg,.jpeg" multiple >
                         <label class="btn tertiary-killer mx-3" for="fileUpload">{{ __('producto.seleccionar') }}</label>
                         <span id="fileName"></span>
                     </div>

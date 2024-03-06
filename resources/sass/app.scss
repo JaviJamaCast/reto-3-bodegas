@@ -134,8 +134,9 @@
 }
 
 .cardClass {
+
     background-color: $secondary-color !important;
-    max-width: 70em;
+
 }
 
 .cardClassHeader {
@@ -213,6 +214,18 @@
     height: 13.8em;
 }
 
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.card-img-top {
+    width: 100%;
+    object-fit: cover;
+    height: 40vh;
+}
 
 @media (min-width: 992px) {
     .index {

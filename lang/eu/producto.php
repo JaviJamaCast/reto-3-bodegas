@@ -12,6 +12,7 @@ return [
     | these language lines according to your application's requirements.
     |
     */
+    'formatoL' => 'Formatua',
     'categoriaL' => 'Kategoriak',
     'crearProductoL' => 'Produktu Berria Sortu',
     'nombre' => 'Izena:',
