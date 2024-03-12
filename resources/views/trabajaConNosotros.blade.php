@@ -5,7 +5,7 @@
         <div class="col col-md-3 my-2">
             <img class="img-fluid" src="{{ asset('/images/WorkWith.png') }}">
         </div>
-        <div class="col-12 col-md-6 mb-5">
+        <div class="col-12 col-md-6 m-5">
             <div class="card">
                 <div class="card-header cardClassHeader">
                     {{ __('trabajaConNosotros.trabajaL') }}

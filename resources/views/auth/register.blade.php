@@ -5,7 +5,7 @@
         <div class="col-md-3 my-2">
             <img class="img-fluid" src="{{ asset('/images/KawaiiLogo.png') }}">
         </div>
-        <div class="col-md-8 mb-5">
+        <div class="col-md-8 m-5">
             <div class="card">
                 <div class="card-header cardClassHeader">{{ __('register.registerL') }}</div>
 
