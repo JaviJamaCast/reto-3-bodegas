@@ -134,7 +134,7 @@
 }
 
 .cardClass {
-
+    max-width: 85%;
     background-color: $secondary-color !important;
 
 }
@@ -210,9 +210,7 @@
     padding: 0.4em;
     border-radius: 0.4em;
 }
-.index {
-    height: 13.8em;
-}
+
 
 .flex-container {
     display: flex;
@@ -224,11 +222,7 @@
 .card-img-top {
     width: 100%;
     object-fit: cover;
-    height: 40vh;
+    height: 30vh;
 }
 
-@media (min-width: 992px) {
-    .index {
-        height: 20.5em;
-    }
-}
+

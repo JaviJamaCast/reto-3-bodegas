@@ -28,11 +28,11 @@
         </div>
         <div class="row">
             @foreach ($productos as $producto)
-                <div class="col-md-4 col-lg-3 mb-4">
-                    <div class="card cardClass h-100">
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="card cardClass">
                         @if ($producto->imagenes->count() > 1)
                             <div id="carousel{{ $producto->id }}" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner index">
+                                <div class="carousel-inner">
                                     @foreach ($producto->imagenes as $index => $imagen)
                                         <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
                                             <img src="{{ asset('storage/' . $imagen->nombre) }}" class="card-img-top"
