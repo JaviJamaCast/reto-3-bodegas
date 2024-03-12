@@ -12,12 +12,11 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-    'formato' => 'Formato:',
-    'indiceL' => 'Índice de Formato',
-    'editarL' => 'Editar Formato',
-    'guardarF' => 'Guardar Cambios',
-    'formatos' => 'Formatos',
-    'crearL' => 'Crear Nuevo Formato',
-    'guardarFbn' => 'Crear Nuevo Formato',
-    'actualizarBtn' => 'Actualizar Formato',
+
+    'nombreL' => 'Nombre',
+    'apellidosL' => 'Apellidos',
+    'telefonoL' => 'Telefono',
+    'emailL' => 'Email',
+    'direccionL' => 'Direccion',
+    'guardarCn' => 'Create New Category',
 ];

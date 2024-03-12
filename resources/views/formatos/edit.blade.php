@@ -16,7 +16,7 @@
                         <label for="formato" class="form-label">{{ __('formato.formato') }}</label>
                         <input type="text" name="formato" class="form-control" value="{{ $formato->formato }}" required>
                     </div>
-                    <button type="submit" class="btn primary-killer">{{ __('formato.guardarFbn') }}</button>
+                    <button type="submit" class="btn primary-killer">{{ __('formato.actualizarBtn') }}</button>
                 </form>
             </div>
         </div>

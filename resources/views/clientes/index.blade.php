@@ -13,7 +13,8 @@
                 <div class="col-md-4 col-lg-3 mb-4">
                     <div class="card cardClass h-100">
                         <div class="card-body">
-                            <h5 class="card-title"><strong>{{ $cliente->nombre }}</strong></h5>
+                            <h5 class="card-title"><strong>{{ $cliente->nombre }} {{ $cliente->apellidos }}</strong></h5>
+                            <p class="card-text">{{ $cliente->email }}</p>
                             <p class="card-text">{{ $cliente->telefono }}</p>
                             <div class="d-flex justify-content-between">
                                 <a href="{{ route('clientes.show', $cliente) }}" class="btn primary-killer"><i

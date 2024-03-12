@@ -96,7 +96,7 @@
         </div>
     </div>
 
-    <div class="fixed-bottom text-center p-2 footer">
+    <div class="fixed-bottom text-center p-2 footerClass">
         © Cervezas Killer
     </div>
 </div>

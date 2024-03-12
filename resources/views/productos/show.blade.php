@@ -3,7 +3,7 @@
 @section('content')
     <div class="row d-flex justify-content-center align-items-center trabajaConNosotrosClass m-4 m-md-0">
         <!-- Utiliza min-height 100vh para que tome el alto completo de la pantalla -->
-        <div class="card cardClass mx-2"> <!-- Tarjeta con márgenes y ancho máximo -->
+        <div class="card cardClassShow mx-2"> <!-- Tarjeta con márgenes y ancho máximo -->
             <div class="row g-0">
                 <!-- Detalles del producto -->
                 <div class="col-md-6 d-flex flex-column justify-content-center">
@@ -32,7 +32,7 @@
                 <!-- Carrusel de imágenes -->
                 <div class="col-md-6 d-flex justify-content-center align-items-center">
                     @if ($producto->imagenes->count() > 1)
-                        <div id="carousel{{ $producto->id }}" class="carousel slide p-3" data-bs-ride="carousel">
+                        <div id="carousel{{ $producto->id }}" class="carousel slide p-3 " data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 @foreach ($producto->imagenes as $index => $imagen)
                                     <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">

@@ -35,7 +35,8 @@
     width: 120px !important;
 }
 
-.footer {
+.footerClass{
+
     background-color: $secondary-color;
 }
 .contentLayout {
@@ -74,6 +75,10 @@
     background-color: rgba(0, 0, 0, 0.7);
     padding: 0.5rem;
     border-radius: 0.25rem;
+}
+
+.carousel-prod{
+    max-height: 30vh;
 }
 
 .btn.primary-killer {
@@ -134,7 +139,21 @@
 }
 
 .cardClass {
+    max-width: 100%;
+    background-color: $secondary-color !important;
+
+}
+
+.cardClassProd {
     max-width: 85%;
+    background-color: $secondary-color !important;
+
+}
+
+.cardClassShow{
+    padding-bottom: 1em;
+    margin-bottom: 3em;
+    max-width: 100%;
     background-color: $secondary-color !important;
 
 }
@@ -224,5 +243,3 @@
     object-fit: cover;
     height: 30vh;
 }
-
-

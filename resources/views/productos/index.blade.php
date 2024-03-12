@@ -29,12 +29,13 @@
         <div class="row">
             @foreach ($productos as $producto)
                 <div class="col-md-6 col-lg-3 mb-4">
-                    <div class="card cardClass">
+                    <div class="card cardClassProd">
                         @if ($producto->imagenes->count() > 1)
-                            <div id="carousel{{ $producto->id }}" class="carousel slide" data-bs-ride="carousel">
+                            <div id="carousel{{ $producto->id }}" class="carousel slide carousel-prod"
+                                data-bs-ride="carousel">
                                 <div class="carousel-inner">
                                     @foreach ($producto->imagenes as $index => $imagen)
-                                        <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                                        <div class="carousel-item carousel-prod {{ $index == 0 ? 'active' : '' }}">
                                             <img src="{{ asset('storage/' . $imagen->nombre) }}" class="card-img-top"
                                                 alt="{{ $producto->nombre }} style="height: 100px;">
                                         </div>
@@ -56,7 +57,7 @@
                                 alt="{{ $producto->nombre }}">
                         @elseif($producto->imagenes->count() == 0)
                             <img src="{{ asset('images/default.jpg') }}" class="card-img-top"
-                                style="height: 40vh !important;" alt="{{ $producto->nombre }}">
+                                alt="{{ $producto->nombre }}">
                         @endif
                         <div class="card-body flex-container">
                             <h5 class="card-title"><strong>{{ $producto->nombre }}</strong></h5>
