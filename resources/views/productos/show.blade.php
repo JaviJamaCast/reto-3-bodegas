@@ -1,11 +1,10 @@
 @extends('layouts.panel')
 
 @section('content')
-    <div class="row d-flex justify-content-center align-items-center trabajaConNosotrosClass m-4 m-md-0">
-        <!-- Utiliza min-height 100vh para que tome el alto completo de la pantalla -->
-        <div class="card cardClassShow mx-2"> <!-- Tarjeta con márgenes y ancho máximo -->
+    <div class="row d-flex justify-content-center align-items-center  m-4 m-md-3 h-50">
+
+        <div class="card cardClassShow mx-2">
             <div class="row g-0">
-                <!-- Detalles del producto -->
                 <div class="col-md-6 d-flex flex-column justify-content-center">
                     <div class="card-body">
                         <h1 class="card-title">{{ $producto->nombre }}</h1>
@@ -30,13 +29,13 @@
                     </div>
                 </div>
                 <!-- Carrusel de imágenes -->
-                <div class="col-md-6 d-flex justify-content-center align-items-center">
+                <div class="col-md-6 col-lg-6 d-flex justify-content-center align-items-center">
                     @if ($producto->imagenes->count() > 1)
                         <div id="carousel{{ $producto->id }}" class="carousel slide p-3 " data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 @foreach ($producto->imagenes as $index => $imagen)
-                                    <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
-                                        <img src="{{ asset('storage/' . $imagen->nombre) }}" class="card-img-top img-fluid"
+                                    <div class="carousel-item item-show carousel-prod-show {{ $index == 0 ? 'active' : '' }}">
+                                        <img src="{{ asset('storage/' . $imagen->nombre) }}" class="img-fluid"
                                             alt="{{ $producto->nombre }} ">
                                     </div>
                                 @endforeach
@@ -54,13 +53,14 @@
                         </div>
                     @elseif($producto->imagenes->count() == 1)
                         <img src="{{ asset('storage/' . $producto->imagenes->first()->nombre) }}" class="img-fluid rounded"
-                            alt="Imagen de producto" style="max-height: 300px;">
+                            alt="Imagen de producto">
                     @elseif($producto->imagenes->count() == 0)
-                        <img src="{{ asset('images/default.jpg') }}" class="img-fluid rounded" alt="Imagen de producto"
-                            style="max-height: 300px;">
+                        <img src="{{ asset('images/default.jpg') }}" class="img-fluid rounded" alt="Imagen de producto"">
                     @endif
                 </div>
             </div>
         </div>
     </div>
 @endsection
+
+

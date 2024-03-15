@@ -89,7 +89,7 @@
             </div>
 
             <div class="col-12">
-                <div class="container-fluid d-flex flex-column justify-content-between content">
+                <div class="container-fluid d-flex flex-column justify-content-between contentPanel">
                     @yield('content')
                 </div>
             </div>

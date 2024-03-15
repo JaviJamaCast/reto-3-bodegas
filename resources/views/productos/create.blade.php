@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container mb-5">
-        <h1 class="mb-4">{{ __('producto.crearProductoL') }}</h1>
+        <h1 class="custom-shadow m-4">{{ __('producto.crearProductoL') }}</h1>
         <a href="{{ route('productos.index') }}" class="btn tertiary-killer my-2">{{ __('producto.volverBt') }}</a>
         @if ($errors->any())
             <div class="alert alert-danger">

@@ -18,6 +18,7 @@ return [
     'nombre' => 'Nombre:',
     'descripcion' => 'Descripción:',
     'referencia' => 'Referencia:',
+    'editarL' => 'Editar producto',
     'precio' => 'Precio:',
     'formato' => 'Formato:',
     'categorias' => 'Categorías:',

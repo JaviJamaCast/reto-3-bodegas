@@ -16,6 +16,7 @@ return [
     'categoriaL' => 'Categories',
     'crearProductoL' => 'Create New Product',
     'nombre' => 'Name:',
+    'editarL' => 'Edit product',
     'descripcion' => 'Description:',
     'referencia' => 'Reference:',
     'precio' => 'Price:',

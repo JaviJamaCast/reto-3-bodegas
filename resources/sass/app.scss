@@ -71,6 +71,15 @@
     }
 }
 
+.item-show {
+    height: 30vh;
+    overflow: hidden;
+    img {
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
 .carousel-caption {
     background-color: rgba(0, 0, 0, 0.7);
     padding: 0.5rem;
@@ -79,6 +88,9 @@
 
 .carousel-prod{
     max-height: 30vh;
+}
+.carousel-prod-show{
+    max-height: 100vh;
 }
 
 .btn.primary-killer {
@@ -151,7 +163,7 @@
 }
 
 .cardClassShow{
-    padding-bottom: 1em;
+    height: 100%;
     margin-bottom: 3em;
     max-width: 100%;
     background-color: $secondary-color !important;
@@ -243,3 +255,11 @@
     object-fit: cover;
     height: 30vh;
 }
+
+
+
+@media (min-width: 1220px) {
+    .item-show{
+        height: 60vh;
+    }
+  }

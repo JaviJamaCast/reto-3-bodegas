@@ -18,6 +18,7 @@ return [
     'nombre' => 'Izena:',
     'descripcion' => 'Deskribapena:',
     'referencia' => 'Erreferentzia:',
+    'editarL' => 'Produktua editatu',
     'precio' => 'Prezioa:',
     'formato' => 'Formatua:',
     'categorias' => 'Kategoriak:',
