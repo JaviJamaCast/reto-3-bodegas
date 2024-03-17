@@ -4,9 +4,9 @@
     <div class="row d-flex justify-content-center align-items-center trabajaConNosotrosClass">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('verify.verifyLabel') }}</div>
+                <div class="card-header cardClassHeader">{{ __('verify.verifyLabel') }}</div>
 
-                <div class="card-body">
+                <div class="card-body cardClass">
                     @if (session('resent'))
                         <div class="alert alert-success" role="alert">
                             {{ __('verify.freshEmail') }}

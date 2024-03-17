@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container mb-5">
-        <h1>{{ __('cliente.editarCliente') }}</h1>
+        <h1 class="custom-shadow m-4">{{ __('cliente.editarCliente') }}</h1>
         <a href="{{ route('clientes.index') }}" class="btn tertiary-killer my-2">{{ __('cliente.volverBt') }}</a>
         @if ($errors->any())
             <div class="alert alert-danger">

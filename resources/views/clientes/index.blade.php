@@ -6,7 +6,7 @@
             <h1 class="m-1 mx-md-3 custom-shadow">Indice de clientes</h1>
             <a href="{{ route('clientes.create') }}" class="m-2 mx-md-2 btn primary-killer"><i
                     class="bi bi-plus-lg fs-3"></i></a>
-            <a href="{{ route('categorias.index') }}" class="m-2 mx-md-2 btn primary-killer">Volver</a>
+
         </div>
         <div class="row">
             @foreach ($clientes as $cliente)

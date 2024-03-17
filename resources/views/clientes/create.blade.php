@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1 class="mb-4">{{ __('cliente.crearClienteL') }}</h1>
+        <h1 class="custom-shadow m-4">{{ __('cliente.crearClienteL') }}</h1>
         <a href="{{ route('clientes.index') }}" class="btn tertiary-killer my-2">{{ __('cliente.volverBt') }}</a>
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -55,7 +55,7 @@
                         <input type="file" name="foto_perfil" class="form-control" accept="image/*" required>
                     </div>
 
-                    <button type="submit" class="btn primary-killer">{{ __('cliente.crearClienteBt') }}</button>
+                    <button type="submit" class="btn primary-killer">{{ __('cliente.guardarC') }}</button>
                 </form>
 
             </div>

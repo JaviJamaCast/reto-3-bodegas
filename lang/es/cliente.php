@@ -12,23 +12,22 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-    'fotoPerfilAlt' => 'Photo',
-    'crearClienteL' => 'Create client',
-    'nombreL' => 'First name',
-    'apellidosL' => 'Last name',
-    'editarCliente' => 'Edit client',
-    'guardarC' => 'Save',
-    'telefonoL' => 'Phone',
+    'fotoPerfilAlt' => 'Foto',
+    'crearClienteL' => 'Crear cliente',
+    'nombreL' => 'Nombre',
+    'apellidosL' => 'Apellidos',
+    'editarCliente' => 'Actualizar cliente',
+    'guardarC' => 'Guardar',
+    'telefonoL' => 'Teléfono',
     'emailL' => 'Email',
-    'direccionL' => 'Address',
-    'volverBt' => 'Back',
-    'nombre' => 'First name',
-    'apellidos' => 'Last name',
-    'telefono' => 'Phone',
-    'direccion' => 'Address',
+    'direccionL' => 'Dirección',
+    'volverBt' => 'Volver',
+    'nombre' => 'Nombre',
+    'apellidos' => 'Apellidos',
+    'telefono' => 'Teléfono',
+    'direccion' => 'Dirección',
     'email' => 'Email',
-    'fotoPerfil' => 'Profile picture'
-
+    'fotoPerfil' => 'Foto de perfil'
 
 
 ];
