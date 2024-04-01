@@ -26,22 +26,23 @@
                                 </h5>
                                 <p class="card-text">{{ $cliente->email }}</p>
                                 <p class="card-text">{{ $cliente->telefono }}</p>
-                                <div class="d-flex justify-content-between">
-                                    <a href="{{ route('clientes.show', $cliente) }}" class="btn primary-killer"><i
-                                            class="bi bi-eye fs-5"></i></a>
-                                    <a href="{{ route('clientes.edit', $cliente) }}" class="btn tertiary-killer"><i
-                                            class="bi bi-pencil fs-5"></i></a>
-                                    <form id="{{ $cliente->id }}" action="{{ route('clientes.destroy', $cliente->id) }}"
-                                        method="POST">
-                                        @csrf
-                                        <button type="button" class="btn btn-danger delete-button"
-                                            data-id="{{ $cliente->id }}">
-                                            <i class="bi bi-trash fs-5"></i>
-                                        </button>
-                                        @method('DELETE')
-                                    </form>
-                                </div>
+
                             </div>
+                        </div>
+                        <div class="d-flex justify-content-between mx-5 p-2">
+                            <a href="{{ route('clientes.show', $cliente) }}" class="btn primary-killer"><i
+                                    class="bi bi-eye fs-5"></i></a>
+                            <a href="{{ route('clientes.edit', $cliente) }}" class="btn tertiary-killer"><i
+                                    class="bi bi-pencil fs-5"></i></a>
+                            <form id="{{ $cliente->id }}" action="{{ route('clientes.destroy', $cliente->id) }}"
+                                method="POST">
+                                @csrf
+                                <button type="button" class="btn btn-danger delete-button"
+                                    data-id="{{ $cliente->id }}">
+                                    <i class="bi bi-trash fs-5"></i>
+                                </button>
+                                @method('DELETE')
+                            </form>
                         </div>
                     </div>
                 </div>
