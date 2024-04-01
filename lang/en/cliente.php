@@ -12,6 +12,7 @@ return [
     | these language lines according to your application's requirements.
     |
     */
+    'codigoAcceso' => 'Access Code',
     'fotoPerfilAlt' => 'Photo',
     'crearClienteL' => 'Create client',
     'nombreL' => 'First name',

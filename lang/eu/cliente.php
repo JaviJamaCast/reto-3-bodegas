@@ -12,6 +12,7 @@ return [
     | these language lines according to your application's requirements.
     |
     */
+    'codigoAcceso' => 'Sarbide Kodea',
     'fotoPerfilAlt' => 'Argazkia',
     'crearClienteL' => 'Bezeroa sortu',
     'nombreL' => 'Izena',
