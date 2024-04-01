@@ -35,8 +35,7 @@
     width: 120px !important;
 }
 
-.footerClass{
-
+.footerClass {
     background-color: $secondary-color;
 }
 .contentLayout {
@@ -86,10 +85,10 @@
     border-radius: 0.25rem;
 }
 
-.carousel-prod{
+.carousel-prod {
     max-height: 30vh;
 }
-.carousel-prod-show{
+.carousel-prod-show {
     max-height: 100vh;
 }
 
@@ -153,27 +152,23 @@
 .cardClass {
     max-width: 100%;
     background-color: $secondary-color !important;
-
 }
 
 .cardClassCli {
     max-width: 50%;
     background-color: $secondary-color !important;
-
 }
 
 .cardClassProd {
     max-width: 85%;
     background-color: $secondary-color !important;
-
 }
 
-.cardClassShow{
+.cardClassShow {
     height: 100%;
     margin-bottom: 3em;
     max-width: 100%;
     background-color: $secondary-color !important;
-
 }
 
 .cardClassHeader {
@@ -196,7 +191,7 @@
 }
 
 .bg-primary-killer {
-    background-color: $primary-color;
+    background-color: $primary-color !important;
 }
 
 .bg-tertiary-killer {
@@ -208,10 +203,10 @@
 }
 
 .color-secondary-killer {
-    color: $secondary-color;
+    color: $secondary-color !important;
 }
 .color-primary-killer {
-    color: $primary-color;
+    color: $primary-color !important;
 }
 
 .pagination .page-item.active .page-link {
@@ -248,7 +243,6 @@
     border-radius: 0.4em;
 }
 
-
 .flex-container {
     display: flex;
     flex-direction: column;
@@ -262,10 +256,47 @@
     height: 30vh;
 }
 
-
-
 @media (min-width: 1220px) {
-    .item-show{
+    .item-show {
         height: 60vh;
     }
-  }
+}
+
+@media only screen and (max-width: 760px),
+    (min-device-width: 768px) and (max-device-width: 1024px) {
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        border: 3px solid $quaternary-color;
+    }
+
+    td {
+        border: none;
+        border-bottom: 2px solid $secondary-color;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    td:before {
+
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+    }
+}

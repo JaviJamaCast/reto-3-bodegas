@@ -10,7 +10,7 @@
         </div>
         <div class="row">
             @foreach ($clientes as $cliente)
-                <div class="col-md-4 col-lg-3 mb-4">
+                <div class="col-md-6 col-md-p3 col-lg-3 d-flex justify-content-center mb-4">
                     <div class="card cardClass h-100">
                         <div class="d-flex align-items-start">
                             @if ($cliente->foto_perfil)
@@ -20,8 +20,7 @@
                                 <img src="{{ asset('images/default.jpg') }}"alt="Foto de perfil"
                                     class="img-fluid rounded-circle p-2" style="width: 80px; height: 80px;">
                             @endif
-                            <!-- Imagen de perfil -->
-                            <div class="card-body">
+                            <div class="card-body p-1">
                                 <h5 class="card-title"><strong>{{ $cliente->nombre }} {{ $cliente->apellidos }}</strong>
                                 </h5>
                                 <p class="card-text">{{ $cliente->email }}</p>

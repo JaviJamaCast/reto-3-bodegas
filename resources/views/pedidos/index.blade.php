@@ -9,7 +9,7 @@
         </div>
         <div class="row">
             @foreach ($pedidos as $pedido)
-                <div class="col-md-6 col-lg-3 mb-4">
+                <div class="col-md-6 col-lg-3 d-flex justify-content-center mb-4">
                     <div class="card cardClassProd">
 
                         <div class="card-body flex-container">
