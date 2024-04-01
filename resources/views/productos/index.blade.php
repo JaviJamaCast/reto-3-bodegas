@@ -28,7 +28,7 @@
         </div>
         <div class="row">
             @foreach ($productos as $producto)
-                <div class="col-md-6 col-lg-3 mb-4">
+                <div class="col-md-6 col-lg-3 d-flex justify-content-center mb-4">
                     <div class="card cardClassProd">
                         @if ($producto->imagenes->count() > 1)
                             <div id="carousel{{ $producto->id }}" class="carousel slide carousel-prod"
