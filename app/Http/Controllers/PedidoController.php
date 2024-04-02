@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Categoria;
-use App\Models\Formato;
+use App\Models\Cliente;
 use App\Models\Imagen;
 use App\Models\Pedido;
 use App\Models\Producto;
@@ -17,7 +16,7 @@ class PedidoController extends Controller
      */
     public function index()
     {
-       $pedidos = Pedido::with('cliente')->paginate(12);
+        $pedidos = Pedido::with('cliente')->paginate(12);
         return view('pedidos.index', compact('pedidos'));
     }
 
@@ -26,9 +25,9 @@ class PedidoController extends Controller
      */
     public function create()
     {
-        $categorias = Categoria::all();
-        $formatos = Formato::all();
-        return view('productos.create', compact(['formatos', 'categorias']));
+        $clientes = Cliente::all();
+        $productos = Producto::all();
+        return view('pedidos.create', compact(['clientes', 'productos']));
     }
 
     /**
@@ -36,48 +35,31 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
-       $lang = App::getLocale();
+        $lang = App::getLocale();
 
         $successMessages = [
-            'es' => '¡Producto creado correctamente!',
-            'en' => 'Product created successfully!',
-            'eu' => 'Produktua ondo sortu da!',
+            'es' => 'Pedido creado correctamente!',
+            'en' => 'Order created successfully!',
+            'eu' => 'Eskaera behar bezala sortuta!',
         ];
-        // Valida los datos de entrada del formulario
         $request->validate([
-            'nombre' => 'required|max:255',
-            'descripcion' => 'required',
-            'referencia' => 'required',
-            'precio' => 'required|numeric',
-            'formato_id' => 'required|exists:formatos,id',
-            'categorias' => 'required|array',
-            'categorias.*' => 'exists:categorias,id',
-            'imagenes' => 'required|array',
-            'imagenes.*' => 'image|max:10240 ', // 2MB max size per image
+            'cliente_id' => 'required|exists:clientes,id',
+            'productos' => 'required|array',
+            'productos.*.id' => 'required|exists:productos,id',
+            'productos.*.cantidad' => 'required|numeric|min:1'
         ]);
 
-        // Crea un nuevo producto
-        $producto = Producto::create($request->all());
+        $pedido = new Pedido();
+        $pedido->cliente_id = $request->cliente_id;
+        $pedido->fecha_pedido = now();
+        $pedido->save();
 
-        // Guarda las imágenes asociadas al producto
-        if ($request->hasFile('imagenes')) {
-            foreach ($request->file('imagenes') as $imagen) {
-                $nombreImagen = $imagen->getClientOriginalName();
-                $rutaImagen = $imagen->storeAs('imagenes', $nombreImagen, 'public');
-                Imagen::create([
-                    'producto_id' => $producto->id,
-                    'nombre' => $rutaImagen,
-                ]);
+        foreach ($request->productos as $producto_id => $cantidad) {
+            if ($cantidad > 0) {
+                $pedido->productos()->attach($producto_id, ['cantidad' => $cantidad]);
             }
         }
-
-        // Asocia las categorías al producto
-        if ($request->has('categorias')) {
-            $producto->categorias()->attach($request->categorias);
-        }
-
-        // Redirecciona a la página de inicio o a la vista de detalle del producto creado
-        return redirect()->route('productos.index')->with('success', $successMessages[$lang]);
+        return redirect()->route('pedidos.index')->with('success', $successMessages[$lang]);
     }
 
     /**
@@ -109,6 +91,15 @@ class PedidoController extends Controller
      */
     public function destroy(Pedido $pedido)
     {
-        //
+        $lang = App::getLocale();
+        $successMessages = [
+            'es' => 'Pedido eliminado correctamente!',
+            'en' => 'Order deleted successfully!',
+            'eu' => 'Eskaera ondo ezabatu da!',
+        ];
+
+        $pedido->delete();
+
+        return redirect()->route('pedidos.index')->with('success', $successMessages[$lang]);
     }
 }

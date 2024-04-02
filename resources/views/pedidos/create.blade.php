@@ -3,7 +3,7 @@
 @section('content')
     <div class="container mb-5">
         <h1 class="custom-shadow m-4">{{ __('producto.crearProductoL') }}</h1>
-        <a href="{{ route('productos.index') }}" class="btn tertiary-killer my-2">{{ __('producto.volverBt') }}</a>
+        <a href="{{ route('pedidos.index') }}" class="btn tertiary-killer my-2">{{ __('pedido.volverBt') }}</a>
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul class="mb-0">
@@ -16,7 +16,7 @@
 
         <div class="card cardClass">
             <div class="card-body">
-                <form action="{{ route('productos.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('pedidos.store') }}" method="POST">
                     @csrf
 
                     <div class="mb-3">
