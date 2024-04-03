@@ -45,20 +45,23 @@ class PedidoController extends Controller
         $request->validate([
             'cliente_id' => 'required|exists:clientes,id',
             'productos' => 'required|array',
-            'productos.*.id' => 'required|exists:productos,id',
-            'productos.*.cantidad' => 'required|numeric|min:1'
+            'total_pedido' => 'required|numeric|min:1'
+
         ]);
 
         $pedido = new Pedido();
         $pedido->cliente_id = $request->cliente_id;
-        $pedido->fecha_pedido = now();
+        $pedido->total = $request->total_pedido;
+        $pedido->estado = "En preparacion";
         $pedido->save();
 
-        foreach ($request->productos as $producto_id => $cantidad) {
-            if ($cantidad > 0) {
-                $pedido->productos()->attach($producto_id, ['cantidad' => $cantidad]);
-            }
+
+        // Suponiendo que 'productos' es un array de arrays con 'id' y 'cantidad'
+        foreach ($request->input('productos', []) as $producto) {
+
+            $pedido->productos()->attach($producto['id'], ['cantidad' => $producto['cantidad']]);
         }
+
         return redirect()->route('pedidos.index')->with('success', $successMessages[$lang]);
     }
 

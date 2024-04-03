@@ -19,62 +19,47 @@
                 <form action="{{ route('pedidos.store') }}" method="POST">
                     @csrf
 
+                    <!-- Selector de Cliente -->
                     <div class="mb-3">
-                        <label for="nombre" class="form-label">{{ __('producto.nombre') }}</label>
-                        <input type="text" name="nombre" class="form-control bg-primary-killer" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="descripcion" class="form-label">{{ __('producto.descripcion') }}</label>
-                        <textarea name="descripcion" class="form-control bg-primary-killer" rows="3" required></textarea>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="referencia" class="form-label">{{ __('producto.referencia') }}</label>
-                        <input type="text" name="referencia" class="form-control bg-primary-killer" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="precio" class="form-label">{{ __('producto.precio') }}</label>
-                        <input type="number" step="any" name="precio" min="00.1" max="99.99"  class="form-control bg-primary-killer" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="formato_id" class="form-label">{{ __('producto.formato') }}</label>
-                        <select name="formato_id" class="form-select bg-primary-killer" required>
-                            @foreach ($formatos as $formato)
-                                <option value="{{ $formato->id }}">{{ $formato->formato }}</option>
+                        <label for="cliente_id" class="form-label">Cliente</label>
+                        <select class="form-select" name="cliente_id" id="cliente_id" required>
+                            @foreach ($clientes as $cliente)
+                                <option value="{{ $cliente->id }}">{{ $cliente->nombre }} {{ $cliente->apellidos }}
+                                </option>
                             @endforeach
                         </select>
                     </div>
 
-                    <h5 class="card-title">{{ __('producto.categorias') }}</h5>
-                    <div class="row">
-                        @foreach ($categorias as $categoria)
-                            <div class="col-md-2 mb-3">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="categoria{{ $categoria->id }}"
-                                        name="categorias[]" value="{{ $categoria->id }}">
-                                    <label class="form-check-label"
-                                        for="categoria{{ $categoria->id }}">{{ $categoria->nombre }}</label>
-                                </div>
+                    <div class="mb-3">
+                        <label for="producto_id" class="form-label d-block">Productos</label>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="flex-grow-1 me-2">
+                                <select class="form-select" id="producto_id">
+                                    @foreach ($productos as $producto)
+                                        <option value="{{ $producto->id }}" dataPrecio="{{ $producto->precio }}">
+                                            {{ $producto->nombre }}</option>
+                                    @endforeach
+                                </select>
                             </div>
-                        @endforeach
+                            <button type="button" id="agregar_producto" class="btn btn-primary">Agregar Producto</button>
+                        </div>
                     </div>
 
-                    <div class="my-3">
-                        <label for="fileUpload" class="form-label">{{ __('producto.imagenes') }}</label>
-                        <input type="file" class="form-control d-none" name="imagenes[]" id="fileUpload"
-                            accept=".png,.jpg,.jpeg" multiple >
-                        <label class="btn tertiary-killer mx-3" for="fileUpload">{{ __('producto.seleccionar') }}</label>
-                        <span id="fileName"></span>
+                    <!-- Contenedor para productos agregados dinámicamente -->
+                    <div id="productos_agregados" class="mb-3">
+                        <!-- Aquí se agregarán los productos dinámicamente -->
                     </div>
+                    <input type="hidden" name="total_pedido" id="total_pedido_input" value="0">
+
+                    <div id="total_pedido_container">
+                        Total del Pedido: <span id="total_pedido" >$0.00</span>
+                    </div>
+
+
 
                     <button type="submit" class="btn primary-killer">{{ __('producto.crearProductoBt') }}</button>
                 </form>
-
             </div>
         </div>
     </div>
-
 @endsection

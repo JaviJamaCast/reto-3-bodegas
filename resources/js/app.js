@@ -134,3 +134,101 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("codigo_acceso").value = codigo;
         });
 });
+
+document
+    .getElementById("agregar_producto")
+    .addEventListener("click", function () {
+        const productoId = document.getElementById("producto_id");
+        const productoSeleccionado =
+            productoId.options[productoId.selectedIndex];
+        const precioProducto = parseFloat(
+            productoSeleccionado.getAttribute("dataPrecio")
+        ); // Asegúrate de tener este atributo en el option
+        const productosAgregados = document.getElementById(
+            "productos_agregados"
+        );
+
+        if (
+            document.querySelector(
+                `input[name="productos[][id]"][value="${productoSeleccionado.value}"]`
+            )
+        ) {
+            alert("Este producto ya ha sido agregado.");
+            return;
+        }
+
+        const div = document.createElement("div");
+        div.classList.add("mb-3", "d-flex", "align-items-center");
+        div.setAttribute("data-precio", precioProducto); // Almacenar precio aquí
+        div.id = "producto-" + productoSeleccionado.value;
+
+        // Crear un input para el ID del producto
+        const inputId = document.createElement("input");
+        inputId.type = "hidden";
+        inputId.name = `productos[${productoSeleccionado.value}][id]`;
+        inputId.value = productoSeleccionado.value;
+        div.appendChild(inputId);
+
+        // Crear etiqueta con el nombre del producto y el precio
+        const label = document.createElement("span");
+        label.classList.add("me-2");
+        label.textContent = `${productoSeleccionado.text} - $${precioProducto}`;
+        div.appendChild(label);
+
+        // Crear input para la cantidad
+        const inputCantidad = document.createElement("input");
+        inputCantidad.type = "number";
+        inputCantidad.name = `productos[${productoSeleccionado.value}][cantidad]`;
+        inputCantidad.placeholder = "Cantidad";
+        inputCantidad.min = 1;
+        inputCantidad.required = true;
+        inputCantidad.classList.add("form-control", "ms-2");
+        inputCantidad.style.width = "auto";
+        div.appendChild(inputCantidad);
+
+        // Etiqueta para mostrar el total por producto
+        const totalProductoLabel = document.createElement("span");
+        totalProductoLabel.classList.add("ms-2");
+        totalProductoLabel.textContent = "Total: $0.00";
+        div.appendChild(totalProductoLabel);
+
+        // Evento para actualizar el total cuando cambie la cantidad
+        inputCantidad.addEventListener("change", function () {
+            const cantidad = parseInt(inputCantidad.value) || 0;
+            const totalProducto = precioProducto * cantidad;
+            totalProductoLabel.textContent = `Total: $${totalProducto.toFixed(
+                2
+            )}`;
+            actualizarTotalPedido();
+        });
+
+        // Crear botón de eliminar
+        const botonEliminar = document.createElement("button");
+        botonEliminar.type = "button";
+        botonEliminar.textContent = "Eliminar";
+        botonEliminar.classList.add("btn", "btn-danger", "ms-2");
+        botonEliminar.onclick = function () {
+            productosAgregados.removeChild(div);
+            actualizarTotalPedido();
+        };
+        div.appendChild(botonEliminar);
+
+        // Añadir el contenedor al DOM y actualizar el total del pedido
+        productosAgregados.appendChild(div);
+        actualizarTotalPedido();
+    });
+
+function actualizarTotalPedido() {
+    let totalPedido = 0;
+    document.querySelectorAll("#productos_agregados > div").forEach((div) => {
+        const precioProducto = parseFloat(div.getAttribute("data-precio"));
+        const inputCantidad = div.querySelector('input[type="number"]');
+        const cantidad = parseInt(inputCantidad.value) || 0;
+        totalPedido += cantidad * precioProducto;
+    });
+    document.getElementById(
+        "total_pedido"
+    ).textContent = `${totalPedido.toFixed(2)}`;
+    document.getElementById("total_pedido_input").value =
+        totalPedido.toFixed(2);
+}
